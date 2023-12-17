@@ -27,10 +27,12 @@ namespace WpfControlLibrary2.Elements
         public Color OnMouseEnterColor = WpfControlLibrary2.Resources.OnMouseEnterColor;
         public Color XAMLOnMouseEnterColor { set { OnMouseEnterColor = value; } }
         public Color XAMLTextColor { set { Text.Foreground = new SolidColorBrush(value); } }
+        
         public string XAMLText { set { Text.Text = value; } }
         public Button1()
         {
             InitializeComponent();
+            
         }
         public string GetText()
         {

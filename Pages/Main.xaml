@@ -4,11 +4,27 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UP._02_ver._2.Pages"
+      xmlns:uc ="clr-namespace:WpfControlLibrary2.Elements;assembly=WpfControlLibrary2"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Main">
 
-    <Grid>
+    <Grid Background="White">
+        <Grid x:Name="TopGrid" Height="50" VerticalAlignment="Top" Background="#E9F1FA">
+            <Label Content="Система управления инвентаризацией" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+            <!--<uc:LogOut HorizontalAlignment="Right" Margin="5" MouseDown="LogOut_MouseDown"/>-->
+        </Grid>
+        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="5,55,5,0" >
+            <Grid x:Name="BodyGrid" >
+                <WrapPanel Orientation="Horizontal">
+                    <uc:Button1 x:Name="Equipment" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Оборудование"/>
+                    <uc:Button1 x:Name="Rooms" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Аудитории"/>
+                    <uc:Button1 x:Name="Users" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Пользователи"/>
+                    <uc:Button1 x:Name="Developers" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Разработчики"/>
+                    <uc:Button1 x:Name="Types" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Типы оборудования"/>
+                </WrapPanel>
+            </Grid>
+        </ScrollViewer>
         
     </Grid>
 </Page>

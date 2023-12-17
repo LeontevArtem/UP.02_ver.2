@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -26,8 +27,10 @@ namespace UP._02_ver._2
         public MainWindow()
         {
             InitializeComponent();
-            //UsersList.Add(new Classes.Users(0,"sa","sa",0,"","","","","",""));
+            
             LoginPage = new Pages.Login(this);
+            
+            
             List<Exception> ErrorsList = LoadData(0);
             if (ErrorsList.Count != 0) 
             {
@@ -81,6 +84,7 @@ namespace UP._02_ver._2
             this.frame.BeginAnimation(Frame.OpacityProperty, opgrid);
             return 0;
         }
+        
         public List<Exception> LoadData(int a)
         {
             (LoginPage as Pages.Login).LogIn.IsEnabled = true;

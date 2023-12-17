@@ -31,7 +31,11 @@ namespace UP._02_ver._2.Pages
         private async void LoginClick(object sender, MouseButtonEventArgs e)
         {
             Classes.Users CurrentUser = mainWindow.UsersList.Find(x => x.Login==LoginBox.GetText().Trim() && x.Password==PasswordBox.GetText().Trim());
-            if (CurrentUser != null) MainWindow.CurrentUser = CurrentUser;
+            if (CurrentUser != null)
+            {
+                MainWindow.CurrentUser = CurrentUser;
+                mainWindow.OpenPage(new Pages.Main());
+            }
             else
             {
                 Task Error = new Task(() => MessageBox.Show("Неверный логин или пароль!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error));
