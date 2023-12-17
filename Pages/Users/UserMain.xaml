@@ -16,7 +16,7 @@
         </Grid>
         <uc:SidePanel1 Margin="0,50,0,50" x:Name="SidePanel" Panel.ZIndex="1"/>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Left" Margin="5,55,5,50" >
-            <WrapPanel x:Name="UserPanel" HorizontalAlignment="Center" />
+            <StackPanel x:Name="UserPanel" />
         </ScrollViewer>
         <uc:Button1 x:Name="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="10" XAMLText="Назад" XAMLTextColor="White" MouseDown="BackClick"/>
     </Grid>

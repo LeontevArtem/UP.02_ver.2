@@ -70,6 +70,13 @@ namespace UP._02_ver._2.Pages.Users
             {
                 UserPanel.Children.Add(new Pages.Users.UserElements.UserElement(mainWindow, this, curUser));
             }
+            WpfControlLibrary2.Elements.Button1 AddButton = new WpfControlLibrary2.Elements.Button1() {XAMLText="Добавить",XAMLTextColor=Color.FromRgb(255,255,255),Margin=new System.Windows.Thickness(10),Height=75 };
+            UserPanel.Children.Add(AddButton);
+                
+        }
+        public void AddClick()
+        {
+
         }
         public void BackClick(object sender, MouseButtonEventArgs e)
         {
