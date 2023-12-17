@@ -12,14 +12,14 @@
     <Grid Background="White">
         <Grid x:Name="TopGrid" Height="50" VerticalAlignment="Top" Background="#E9F1FA">
             <Label Content="Система управления инвентаризацией" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
-            <!--<uc:LogOut HorizontalAlignment="Right" Margin="5" MouseDown="LogOut_MouseDown"/>-->
+            
         </Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="5,55,5,0" >
             <Grid x:Name="BodyGrid" >
                 <WrapPanel Orientation="Horizontal">
                     <uc:Button1 x:Name="Equipment" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Оборудование"/>
                     <uc:Button1 x:Name="Rooms" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Аудитории"/>
-                    <uc:Button1 x:Name="Users" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Пользователи"/>
+                    <uc:Button1 x:Name="Users" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Пользователи" MouseDown="UserClick"/>
                     <uc:Button1 x:Name="Developers" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Разработчики"/>
                     <uc:Button1 x:Name="Types" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Типы оборудования"/>
                 </WrapPanel>

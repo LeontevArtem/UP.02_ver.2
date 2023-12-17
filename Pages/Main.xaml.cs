@@ -20,9 +20,15 @@ namespace UP._02_ver._2.Pages
     /// </summary>
     public partial class Main : Page
     {
-        public Main()
+        MainWindow mainWindow;
+        public Main(MainWindow mainWindow)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
+        }
+        public void UserClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new Pages.Users.UserMain(mainWindow,this));
         }
     }
 }

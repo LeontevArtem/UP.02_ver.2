@@ -37,7 +37,7 @@ namespace UP._02_ver._2.Pages.Regin.ReginSteps
 
             if (Regex.IsMatch(AdressBox.GetText().Trim(), @"^г\.[^\s,]+,\s*ул\.[^\s,]+,\s*д\.\d+$"))
             {
-                reginMain.NewUser.Name = AdressBox.GetText();
+                reginMain.NewUser.Address = AdressBox.GetText();
             }
             else
             {
@@ -46,7 +46,7 @@ namespace UP._02_ver._2.Pages.Regin.ReginSteps
             }
             if (Regex.IsMatch(PhoneBox.GetText().Trim(), @"^\+7\d{11}$")|| Regex.IsMatch(PhoneBox.GetText(), @"^8\d{10}$"))
             {
-                reginMain.NewUser.Surname = PhoneBox.GetText();
+                reginMain.NewUser.Phone = PhoneBox.GetText();
             }
             else
             {
@@ -55,7 +55,7 @@ namespace UP._02_ver._2.Pages.Regin.ReginSteps
             }
             if (Regex.IsMatch(MailBox.GetText().Trim(), @"^[a-zA-Z0-9_.+-]+@[a-zA-Z]+\.[a-zA-Z]+$"))
             {
-                reginMain.NewUser.Patronymic = MailBox.GetText();
+                reginMain.NewUser.Email = MailBox.GetText();
             }
             else
             {

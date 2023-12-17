@@ -118,5 +118,8 @@
   <ItemGroup>
     <Resource Include="Elements\menuicon.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\cross.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

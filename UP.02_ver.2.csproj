@@ -108,6 +108,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Users\UserElements\UserElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Users\UserMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Pages\Login.xaml.cs">
@@ -127,6 +135,12 @@
     </Compile>
     <Compile Include="Pages\Regin\ReginSteps\Step3.xaml.cs">
       <DependentUpon>Step3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Users\UserElements\UserElement.xaml.cs">
+      <DependentUpon>UserElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Users\UserMain.xaml.cs">
+      <DependentUpon>UserMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
