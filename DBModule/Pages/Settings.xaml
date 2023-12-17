@@ -1,0 +1,43 @@
+﻿<Page x:Class="DBModule.Pages.Settings"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:DBModule.Pages"
+      xmlns:uc ="clr-namespace:WpfControlLibrary2.Elements;assembly=WpfControlLibrary2"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Settings">
+
+    <Grid>
+        <Grid x:Name="TopGrid" Height="50" VerticalAlignment="Top" Background="#E9F1FA">
+            <Label Content="Настройки" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid x:Name="BodyGrid" Margin="0,50,0,0" Background="White">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,50">
+                <Grid>
+                    <Label Content="База данных" FontSize="16" FontWeight="DemiBold" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <uc:TextBox1 x:Name="DataBase" Margin="200,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
+
+                    <Label Content="Название сервера" FontSize="16" FontWeight="DemiBold" Margin="10,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <uc:TextBox1 x:Name="Server" Margin="200,50,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
+
+                    <Label Content="Имя для входа" FontSize="16" FontWeight="DemiBold" Margin="10,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <uc:TextBox1 x:Name="Name" Margin="200,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
+
+                    <Label Content="Пароль" FontSize="16" FontWeight="DemiBold" Margin="10,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <uc:TextBox1 x:Name="Password" Margin="200,130,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
+
+                    <Label x:Name="CurStr" Content="Текущая строчка для входа: " FontSize="12" FontWeight="DemiBold" Margin="10,210,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+
+                    <Label Content="Не использовать имя для входа:" FontSize="16" FontWeight="DemiBold" Margin="10,170,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                    <uc:Switch1 x:Name="UseName" Width="60" Margin="280,170,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>
+                </Grid>
+            </ScrollViewer>
+
+            <uc:Button1 x:Name="BackButton" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" XAMLText="Назад" Width="65" XAMLTextColor="White"/>
+            <uc:Button1 x:Name="SaveButton" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="85,0,0,10" XAMLText="Сохранить" XAMLTextColor="White" MouseDown="Save"/>
+
+        </Grid>
+    </Grid>
+</Page>
