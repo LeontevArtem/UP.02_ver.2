@@ -28,8 +28,8 @@
                 <uc:TextBox1 x:Name="LoginBox" VerticalAlignment="Bottom"  Margin="10,0,10,160"/>
                 <Label Content="Пароль:" VerticalAlignment="Bottom" FontSize="16" FontWeight="Bold" Margin="10,0,0,120" Height="30"/>
                 <uc:PasswordBox1 x:Name="PasswordBox" VerticalAlignment="Bottom"  Margin="10,0,10,90" />
-                <uc:Button1 x:Name="LogIn" XAMLText="Вход" VerticalAlignment="Bottom" Margin="10,0,10,50" XAMLTextColor="White" MouseDown="LoginClick"/>
-                <uc:Button1 x:Name="RegIn" XAMLText="Регистрация" VerticalAlignment="Bottom" Margin="10,0,0,10" Width="135" HorizontalAlignment="Left"  XAMLTextColor="White"/>
+                <uc:Button1 x:Name="LogIn" XAMLText="Вход" VerticalAlignment="Bottom" Margin="10,0,10,50" XAMLTextColor="White" MouseDown="LoginClick" />
+                <uc:Button1 x:Name="RegIn" XAMLText="Регистрация" VerticalAlignment="Bottom" Margin="10,0,0,10" Width="135" HorizontalAlignment="Left"  XAMLTextColor="White" MouseDown="Registration"/>
                 <uc:Button1 x:Name="Settings" XAMLText="Настройки" VerticalAlignment="Bottom" Margin="10,0,10,10" Width="135" HorizontalAlignment="Right"  XAMLTextColor="White" MouseDown="SettingsClick"/>
             </Grid>
         </Border>

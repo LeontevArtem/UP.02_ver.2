@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -37,6 +38,7 @@ namespace WpfControlLibrary2.Elements
             OnMouseEnterColor = WpfControlLibrary2.Resources.OnMouseEnterColor;
             Border.BorderBrush = new SolidColorBrush(BackgroundColor);
         }
+        
         public void BackgroundOnEnter()
         {
             SolidColorBrush BackgroundBrush = new SolidColorBrush(OnMouseEnterColor);

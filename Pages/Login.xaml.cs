@@ -30,12 +30,8 @@ namespace UP._02_ver._2.Pages
         }
         private async void LoginClick(object sender, MouseButtonEventArgs e)
         {
-            Classes.Users CurrentUser = mainWindow.UsersList.Find(x => x.Login==LoginBox.GetText().Trim() && x.Password==PasswordBox.GetText().Trim());
-            if (CurrentUser != null)
-            {
-                MainWindow.CurrentUser = CurrentUser;
-                mainWindow.OpenPage(new Pages.Main());
-            }
+            MainWindow.CurrentUser = mainWindow.UsersList.Find(x => x.Login==LoginBox.GetText().Trim() && x.Password==PasswordBox.GetText().Trim());
+            if (MainWindow.CurrentUser != null) mainWindow.OpenPage(new Pages.Main());
             else
             {
                 Task Error = new Task(() => MessageBox.Show("Неверный логин или пароль!", "Ошибка авторизации", MessageBoxButton.OK, MessageBoxImage.Error));
@@ -49,6 +45,10 @@ namespace UP._02_ver._2.Pages
         public void SettingsClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(new DBModule.Pages.Settings(this,mainWindow.OpenPage,mainWindow.LoadData));
+        }
+        public void Registration(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new Pages.Regin.ReginMain(mainWindow));
         }
     }
 }

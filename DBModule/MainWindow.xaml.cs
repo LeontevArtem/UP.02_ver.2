@@ -26,7 +26,7 @@ namespace DBModule
         }
         public static string ServerStr = "DESKTOP-ARTEM";
         public static string DatabaseStr = "UP.02";
-        public static string UserStr = "sas";
+        public static string UserStr = "sa";
         public static string PwdStr = "sa";
     }
 }
