@@ -32,7 +32,7 @@ namespace UP._02_ver._2.Pages
         }
         public void EquipmentClick(object sender, MouseButtonEventArgs e)
         {
-
+            mainWindow.OpenPage(new Pages.Equipment.EquipmentMain(mainWindow,this));
         }
     }
 }
