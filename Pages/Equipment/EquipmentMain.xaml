@@ -18,6 +18,6 @@
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Left" Margin="5,55,5,50" >
             <StackPanel x:Name="EquipmentPanel" />
         </ScrollViewer>
-        <uc:Button1 x:Name="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="10" XAMLText="Назад" XAMLTextColor="White" MouseDown="BackClick"/>
+        <uc:Button1 x:Name="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="10" XAMLText="Назад" XAMLTextColor="White" />
     </Grid>
 </Page>

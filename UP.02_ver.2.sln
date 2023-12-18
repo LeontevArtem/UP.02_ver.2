@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfControlLibrary2", "WpfCo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBModule", "DBModule\DBModule.csproj", "{4C442CB2-1D75-4C18-8FE4-7CDB1CA75E63}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reports", "Reports\Reports.csproj", "{FB1DF246-29E9-4889-8C6C-F413AA19E50C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{4C442CB2-1D75-4C18-8FE4-7CDB1CA75E63}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C442CB2-1D75-4C18-8FE4-7CDB1CA75E63}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C442CB2-1D75-4C18-8FE4-7CDB1CA75E63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB1DF246-29E9-4889-8C6C-F413AA19E50C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB1DF246-29E9-4889-8C6C-F413AA19E50C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB1DF246-29E9-4889-8C6C-F413AA19E50C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB1DF246-29E9-4889-8C6C-F413AA19E50C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
