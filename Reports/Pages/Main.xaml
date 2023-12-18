@@ -69,12 +69,21 @@
                     </Style>
                 </TabControl.Resources>
                 <TabItem Header="DOX" >
-                    <Label Content="Content goes here..." />
+                    <Grid>
+                        <ComboBox x:Name="cd" Width="200" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10">
+                            <ComboBoxItem Content="приема-передачи оборудования на временное пользование"/>
+                            <ComboBoxItem Content="приема-передачи расходных материалов"/>
+                            <ComboBoxItem Content="приема-передачи оборудования"/>
+                        </ComboBox>
+                        <uc:Button1 VerticalAlignment="Bottom" Margin="10,5"  Height="30" MouseDown="AddClick"/>
+                    </Grid>
+                 
                 </TabItem>
                 <TabItem Header="XLS">
-                    <Label Content="Content goes here..." />
+                    
                 </TabItem>
             </TabControl>
+            
         </Grid>
     </Grid>
 </Page>
