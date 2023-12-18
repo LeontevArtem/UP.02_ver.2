@@ -81,6 +81,7 @@ namespace UP._02_ver._2.Pages.Regin.ReginSteps
                     $"{reginMain.NewUser.Phone}','" +
                     $"{reginMain.NewUser.Address}')", 
                     DBModule.Pages.Settings.ConnectionString);
+                reginMain.mainWindow.LoadData(0);
                 MessageBox.Show("Успешная регистрация","Успех");
                 reginMain.mainWindow.OpenPage(new Pages.Login(reginMain.mainWindow));
             }

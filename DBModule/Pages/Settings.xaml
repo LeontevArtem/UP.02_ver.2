@@ -35,7 +35,7 @@
                 </Grid>
             </ScrollViewer>
 
-            <uc:Button1 x:Name="BackButton" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" XAMLText="Назад" Width="65" XAMLTextColor="White"/>
+            <uc:Button1 x:Name="BackButton" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="10,0,0,10" XAMLText="Назад"  XAMLTextColor="White"/>
             <uc:Button1 x:Name="SaveButton" VerticalAlignment="Bottom" HorizontalAlignment="Left" Margin="85,0,0,10" XAMLText="Сохранить" XAMLTextColor="White" MouseDown="Save"/>
 
         </Grid>

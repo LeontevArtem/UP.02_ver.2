@@ -21,11 +21,17 @@ namespace UP._02_ver._2.Pages.Regin
     public partial class ReginMain : Page
     {
         public MainWindow mainWindow;
-        public ReginMain(MainWindow mainWindow)
+        Page ParrentPage;
+        public ReginMain(MainWindow mainWindow,Page ParrentPage)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+            this.ParrentPage = ParrentPage;
             ChangeStep(new Pages.Regin.ReginSteps.Step1(this));
+        }
+        public void BackClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(ParrentPage);
         }
         public void ChangeStep(Page Step)
         {

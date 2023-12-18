@@ -30,5 +30,9 @@ namespace UP._02_ver._2.Pages
         {
             mainWindow.OpenPage(new Pages.Users.UserMain(mainWindow,this));
         }
+        public void EquipmentClick(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }

@@ -48,7 +48,7 @@ namespace UP._02_ver._2.Pages
         }
         public void Registration(object sender, MouseButtonEventArgs e)
         {
-            mainWindow.OpenPage(new Pages.Regin.ReginMain(mainWindow));
+            mainWindow.OpenPage(new Pages.Regin.ReginMain(mainWindow,this));
         }
     }
 }
