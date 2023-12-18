@@ -1,25 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace UP._02_ver._2.Classes
+﻿namespace UP._02_ver._2.Classes
 {
     public class Equipment
     {
         public int Equipment_id { get; set; }
         public string Name { get; set; }
         public string Image { get; set; }
-        public int Room { get; set; }
-        public int User { get; set; }
-        public int Temp_user { get; set; }
+        public Classes.Rooms Room { get; set; }
+        public Classes.Users User { get; set; }
+        public Classes.Users Temp_user { get; set; }
         public int Cost { get; set; }
-        public int Direction { get; set; }
-        public int Model { get; set; }
-        public int Type { get; set; }
+        public Classes.Directions Direction { get; set; }
+        public Classes.Models Model { get; set; }
+        public Classes.Equipment_types Type { get; set; }
         public string Status { get; set; }
-        public Equipment(int equipment_id,string name,string image,int room,int user,int temp_user,int cost,int direction, int model,int type, string status)
+        public string Comment { get; set; }
+        public Equipment(int equipment_id, string name, string image, Classes.Rooms room, Classes.Users user, Classes.Users temp_user, int cost, Classes.Directions direction, Classes.Models model, Classes.Equipment_types type, string status)
         {
             this.Equipment_id = equipment_id;
             this.Name = name;

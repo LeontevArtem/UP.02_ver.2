@@ -16,6 +16,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UP._02_ver._2.Classes;
 
 namespace UP._02_ver._2
 {
@@ -44,10 +45,7 @@ namespace UP._02_ver._2
                     MessageBox.Show(Errors);
                 }
                 else MessageBox.Show("Измените строку подключения или проверьте правильность данных в БД", "Предупреждение");
-                (LoginPage as Pages.Login).LogIn.IsEnabled = false;
-                (LoginPage as Pages.Login).LogIn.SetBackgroundColor(Color.FromRgb(220,220,220));
-                (LoginPage as Pages.Login).RegIn.IsEnabled = false;
-                (LoginPage as Pages.Login).RegIn.SetBackgroundColor(Color.FromRgb(220, 220, 220));
+                Block();
             }
             OpenPage(LoginPage);
 
@@ -87,10 +85,7 @@ namespace UP._02_ver._2
         
         public List<Exception> LoadData(int a)
         {
-            (LoginPage as Pages.Login).LogIn.IsEnabled = true;
-            (LoginPage as Pages.Login).LogIn.SetBackgroundColor(WpfControlLibrary2.Resources.BackgroundColor);
-            (LoginPage as Pages.Login).RegIn.IsEnabled = true;
-            (LoginPage as Pages.Login).RegIn.SetBackgroundColor(WpfControlLibrary2.Resources.BackgroundColor);
+            UnBlock();
 
             ClearAllLists();
             List<Exception> ErrorsList = new List<Exception>();
@@ -116,16 +111,7 @@ namespace UP._02_ver._2
             }
             catch (Exception ex) { ErrorsList.Add(ex); }
 
-            //Equipment
-            try
-            {
-                System.Data.DataTable EquipmentQuerry = MsSQL.Select("SELECT * FROM [Equipment]", DBModule.Pages.Settings.ConnectionString);
-                for (int i = 0; i < EquipmentQuerry.Rows.Count; i++)
-                {
-                    EquipmentList.Add(new Classes.Equipment(Convert.ToInt32(EquipmentQuerry.Rows[i][0]), Convert.ToString(EquipmentQuerry.Rows[i][1]), Convert.ToString(EquipmentQuerry.Rows[i][2]), Convert.ToInt32(EquipmentQuerry.Rows[i][3]), Convert.ToInt32(EquipmentQuerry.Rows[i][4]), Convert.ToInt32(EquipmentQuerry.Rows[i][5]), Convert.ToInt32(EquipmentQuerry.Rows[i][6]), Convert.ToInt32(EquipmentQuerry.Rows[i][7]), Convert.ToInt32(EquipmentQuerry.Rows[i][8]), Convert.ToInt32(EquipmentQuerry.Rows[i][9]), Convert.ToString(EquipmentQuerry.Rows[i][10])));
-                }
-            }
-            catch (Exception ex) { ErrorsList.Add(ex); }
+            
             //Rooms
             try
             {
@@ -196,7 +182,34 @@ namespace UP._02_ver._2
                 }
             }
             catch (Exception ex) { ErrorsList.Add(ex); }
+            //Equipment
+            try
+            {
+                System.Data.DataTable EquipmentQuerry = MsSQL.Select("SELECT * FROM [Equipment]", DBModule.Pages.Settings.ConnectionString);
+                for (int i = 0; i < EquipmentQuerry.Rows.Count; i++)
+                {
+                    //EquipmentList.Add(new Classes.Equipment(Convert.ToInt32(EquipmentQuerry.Rows[i][0]), Convert.ToString(EquipmentQuerry.Rows[i][1]), Convert.ToString(EquipmentQuerry.Rows[i][2]), Convert.ToInt32(EquipmentQuerry.Rows[i][3]), Convert.ToInt32(EquipmentQuerry.Rows[i][4]), Convert.ToInt32(EquipmentQuerry.Rows[i][5]), Convert.ToInt32(EquipmentQuerry.Rows[i][6]), Convert.ToInt32(EquipmentQuerry.Rows[i][7]), Convert.ToInt32(EquipmentQuerry.Rows[i][8]), Convert.ToInt32(EquipmentQuerry.Rows[i][9]), ""));
+                    Classes.Equipment newEquipment = new Classes.Equipment();
+                    newEquipment.Equipment_id = Convert.ToInt32(EquipmentQuerry.Rows[i][0]);
+                    newEquipment.Name = Convert.ToString(EquipmentQuerry.Rows[i][1]);
+                    newEquipment.Image = Convert.ToString(EquipmentQuerry.Rows[i][2]);
+                    newEquipment.Room = RoomsList.Find(x=>x.Room_id == Convert.ToInt32(EquipmentQuerry.Rows[i][3]));
+                    newEquipment.User = UsersList.Find(x => x.User_id == Convert.ToInt32(EquipmentQuerry.Rows[i][4]));
+                    newEquipment.Temp_user = UsersList.Find(x => x.User_id == Convert.ToInt32(EquipmentQuerry.Rows[i][5]));
+                    newEquipment.Cost = Convert.ToInt32(EquipmentQuerry.Rows[i][6]);
+                    newEquipment.Direction = DirectionsList.Find(x => x.Direction_id == Convert.ToInt32(EquipmentQuerry.Rows[i][7]));
+                    newEquipment.Model = ModelsList.Find(x => x.Model_id == Convert.ToInt32(EquipmentQuerry.Rows[i][8]));
+                    newEquipment.Type = EquipmentTypesList.Find(x => x.Type_id == Convert.ToInt32(EquipmentQuerry.Rows[i][9]));
+                    newEquipment.Status = "";
+                    EquipmentList.Add(newEquipment);
+
+
+                }
+            }
+            catch (Exception ex) { ErrorsList.Add(ex); }
+            if (ErrorsList.Count != 0) Block();
             return ErrorsList;
+            
         }
         public void ClearAllLists()
         {
@@ -210,6 +223,20 @@ namespace UP._02_ver._2
             ModelsList.Clear();
             ProgramsList.Clear();
             RoomsList.Clear();
+        }
+        public void Block()
+        {
+            (LoginPage as Pages.Login).LogIn.IsEnabled = false;
+            (LoginPage as Pages.Login).LogIn.SetBackgroundColor(Color.FromRgb(220, 220, 220));
+            (LoginPage as Pages.Login).RegIn.IsEnabled = false;
+            (LoginPage as Pages.Login).RegIn.SetBackgroundColor(Color.FromRgb(220, 220, 220));
+        }
+        public void UnBlock()
+        {
+            (LoginPage as Pages.Login).LogIn.IsEnabled = true;
+            (LoginPage as Pages.Login).LogIn.SetBackgroundColor(WpfControlLibrary2.Resources.BackgroundColor);
+            (LoginPage as Pages.Login).RegIn.IsEnabled = true;
+            (LoginPage as Pages.Login).RegIn.SetBackgroundColor(WpfControlLibrary2.Resources.BackgroundColor);
         }
     }
 }

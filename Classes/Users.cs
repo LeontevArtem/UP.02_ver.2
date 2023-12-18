@@ -18,6 +18,8 @@ namespace UP._02_ver._2.Classes
         public string Patronymic { get; set; }
         public string Phone { get; set; }
         public string Address { get; set; }
+
+        public string FullName { get { return $"{Surname} {Name} {Patronymic}"; } }
         public Users(int user_id, string login, string password, int role, string email, string name, string surname, string patronymic, string phone, string address)
         {
             this.User_id = user_id;
