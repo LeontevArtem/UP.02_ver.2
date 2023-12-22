@@ -1,17 +1,10 @@
-﻿using System;
+﻿using OfficeOpenXml;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+using MessageBox = System.Windows.Forms.MessageBox;
+using OpenFileDialog = System.Windows.Forms.OpenFileDialog;
 
 namespace importBD.Pages
 {
@@ -22,12 +15,54 @@ namespace importBD.Pages
     {
         public main()
         {
-            InitializeComponent();
-        } 
+            InitializeComponent(); 
+            ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+        }
         public void importClick(object sender, MouseButtonEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files (*.xlsx)|*.xlsx";
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.Multiselect = false;
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+
+                using (ExcelPackage excelPackage = new ExcelPackage(new System.IO.FileInfo(filePath)))
+                {
+                    foreach (ExcelWorksheet worksheet in excelPackage.Workbook.Worksheets)
+                    {
+                        List<string> tableNames = new List<string>();
+                        int numberOfRows = worksheet.Dimension.Rows;
+                        int numberOfColumns = worksheet.Dimension.Columns;
+                        for (int row = 1; row <= numberOfRows; row++)
+                        {
+                            var rowData = new List<string>();
+                            for (int col = 1; col <= numberOfColumns; col++)
+                            {
+                                var cellValue = worksheet.Cells[row, col].Value?.ToString();
+                                rowData.Add(cellValue);
+                            }
+                            tableNames.Add($"{string.Join(",", rowData)}");
+                        }
+                        switch (tableNames[0])
+                        {
+                            case "Login,Password,Role,Email,Name,Surname,Patronymic,Phone,Adress":
+                                MessageBox.Show("sheet1");
+                                break;
+                            case "УЦУ":
+                                MessageBox.Show("sheet2");
+                                break;
+                        }  
+                        string result = string.Join("\n", tableNames);
+                        MessageBox.Show($"Данные по строкам:\n{result}");
+                    }
+                }
+
+                MessageBox.Show("Файл успешно выбран и обработан!");
+            }
         }
     }
-   
+
 }

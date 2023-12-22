@@ -23,6 +23,7 @@ namespace importBD
         public MainWindow()
         {
             InitializeComponent();
+            frame.Navigate(new Pages.main());
         }
     }
 }
