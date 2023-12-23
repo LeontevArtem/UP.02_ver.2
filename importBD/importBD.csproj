@@ -123,6 +123,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DBModule\DBModule.csproj">
+      <Project>{4c442cb2-1d75-4c18-8fe4-7cdb1ca75e63}</Project>
+      <Name>DBModule</Name>
+    </ProjectReference>
     <ProjectReference Include="..\WpfControlLibrary2\WpfControlLibrary2.csproj">
       <Project>{4dab1482-3151-4c99-844a-db7ef85cd1da}</Project>
       <Name>WpfControlLibrary2</Name>
