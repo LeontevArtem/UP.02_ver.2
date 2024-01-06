@@ -49,18 +49,54 @@ namespace importBD.Pages
                             }
                             tableNames.Add($"{string.Join("|", rowData)}");
                         }
-                        switch (tableNames[0])
+                        switch (worksheet.Name)
                         {
-                            case "Login|Password|Role|Email|Name|Surname|Patronymic|Phone|Adress":
+                            case "Users":
                                 import(tableNames, "INSERT INTO Users ([Login],[Password],[Role],[Email],[Name],[Surname],[Patronymic],[Phone],[Adress])" +
                                     "VALUES");
                                 break;
+                            case "Equipment_types":
+                                import(tableNames, "INSERT INTO Equipment_types ([Name])" +
+                                    "VALUES");
+                                break;
+                            case "Models":
+                                import(tableNames, "INSERT INTO Models ([Name],[Type])" +
+                                    "VALUES");
+                                break;
+                            case "Directions":
+                                import(tableNames, "INSERT INTO Directions ([Name])" +
+                                    "VALUES");
+                                break;
+                            case "Inventory":
+                                import(tableNames, "INSERT INTO Inventory ([Date_start],[Date_end],[EquipmentID],[Comment],[UserID])" +
+                                    "VALUES");
+                                break;
+                            case "Consumables":
+                                import(tableNames, "INSERT INTO Consumables ([Name],[Description],[ReceiptDate],[Image],[Quanity],[ResponsibleUser],[TempResponsibleUser])" +
+                                    "VALUES");
+                                break;
+                            case "Developers":
+                                import(tableNames, "INSERT INTO Developers ([Name])" +
+                                    "VALUES");
+                                break;
+                            case "Programs":
+                                import(tableNames, "INSERT INTO Programs ([Name],[Developer],[Version])" +
+                                    "VALUES");
+                                break;
+                            case "Equipment":
+                                import(tableNames, "INSERT INTO Equipment ([Name],[Image],[Room],[User],[Temp_user],[Cost] ,[Direction],[Model],[Type])" +
+                                    "VALUES");
+                                break;
                             case "Rooms":
-                                MessageBox.Show("sheet2");
+                                import(tableNames, "INSERT INTO Rooms ([Name],[Short_name],[Temp_user],[User])" +
+                                    "VALUES");
+                                break;
+                            default:
+                                MessageBox.Show("Данных для импорта не обнаружено");
                                 break;
                         }  
-                        string result = string.Join("\n", tableNames);
-                        MessageBox.Show($"Данные по строкам:\n{result}");
+                        //string result = string.Join("\n", tableNames);
+                        //MessageBox.Show($"Данные по строкам:\n{result}");
                     }
                 }
 

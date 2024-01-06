@@ -38,5 +38,10 @@ namespace UP._02_ver._2.Pages.Regin
             RegFrame.Navigate(Step);
         }
         public Classes.Users NewUser = new Classes.Users();
+
+        private void Back_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
