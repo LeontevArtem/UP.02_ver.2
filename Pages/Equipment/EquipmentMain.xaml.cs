@@ -48,7 +48,7 @@ namespace UP._02_ver._2.Pages.Equipment
         }
         public void AddClick()
         {
-
+            mainWindow.OpenPage(new Pages.Equipment.EquipmentEdit(mainWindow,this));
         }
         public void ElementClick(Classes.Equipment curEquipment)
         {

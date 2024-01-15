@@ -14,11 +14,11 @@ namespace UP._02_ver._2.Classes
         public string Date { get; set; }
         public string Image { get; set; }
         public int Count { get; set; }
-        public int User { get; set; }
-        public int Temp_user { get; set; }
+        public Users User { get; set; }
+        public Users Temp_user { get; set; }
         public string Material_type { get; set; }
 
-        public Consumables(int consumable_id,string name, string description, string date, string image,int count,int user, int temp_user,string material_type)
+        public Consumables(int consumable_id,string name, string description, string date, string image,int count,Users user, Users temp_user,string material_type)
         {
             this.Consumable_id = consumable_id;
             this.Name = name;

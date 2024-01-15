@@ -106,7 +106,7 @@ namespace UP._02_ver._2
                 System.Data.DataTable ConsumablesQuerry = MsSQL.Select("SELECT * FROM [Consumables]", DBModule.Pages.Settings.ConnectionString);
                 for (int i = 0; i < ConsumablesQuerry.Rows.Count; i++)
                 {
-                    ConsumablesList.Add(new Classes.Consumables(Convert.ToInt32(ConsumablesQuerry.Rows[i][0]), Convert.ToString(ConsumablesQuerry.Rows[i][1]), Convert.ToString(ConsumablesQuerry.Rows[i][2]), Convert.ToString(ConsumablesQuerry.Rows[i][3]), Convert.ToString(ConsumablesQuerry.Rows[i][4]), Convert.ToInt32(ConsumablesQuerry.Rows[i][5]), Convert.ToInt32(ConsumablesQuerry.Rows[i][6]), Convert.ToInt32(ConsumablesQuerry.Rows[i][7]), Convert.ToString(ConsumablesQuerry.Rows[i][8])));
+                    ConsumablesList.Add(new Classes.Consumables(Convert.ToInt32(ConsumablesQuerry.Rows[i][0]), Convert.ToString(ConsumablesQuerry.Rows[i][1]), Convert.ToString(ConsumablesQuerry.Rows[i][2]), Convert.ToString(ConsumablesQuerry.Rows[i][3]), Convert.ToString(ConsumablesQuerry.Rows[i][4]), Convert.ToInt32(ConsumablesQuerry.Rows[i][5]),UsersList.Find(x=>x.User_id== Convert.ToInt32(ConsumablesQuerry.Rows[i][6])) , UsersList.Find(x => x.User_id == Convert.ToInt32(ConsumablesQuerry.Rows[i][7])), Convert.ToString(ConsumablesQuerry.Rows[i][8])));
                 }
             }
             catch (Exception ex) { ErrorsList.Add(ex); }
@@ -118,7 +118,14 @@ namespace UP._02_ver._2
                 System.Data.DataTable RoomsQuerry = MsSQL.Select("SELECT * FROM [Rooms]", DBModule.Pages.Settings.ConnectionString);
                 for (int i = 0; i < RoomsQuerry.Rows.Count; i++)
                 {
-                    RoomsList.Add(new Classes.Rooms(Convert.ToInt32(RoomsQuerry.Rows[i][0]), Convert.ToString(RoomsQuerry.Rows[i][1]), Convert.ToString(RoomsQuerry.Rows[i][2]), Convert.ToInt32(RoomsQuerry.Rows[i][3]), Convert.ToInt32(RoomsQuerry.Rows[i][4])));
+                    //RoomsList.Add(new Classes.Rooms(Convert.ToInt32(RoomsQuerry.Rows[i][0]), Convert.ToString(RoomsQuerry.Rows[i][1]), Convert.ToString(RoomsQuerry.Rows[i][2]), Convert.ToInt32(RoomsQuerry.Rows[i][3]), Convert.ToInt32(RoomsQuerry.Rows[i][4])));
+                    Classes.Rooms newRoom = new Classes.Rooms();
+                    newRoom.Room_id = Convert.ToInt32(RoomsQuerry.Rows[i][0]);
+                    newRoom.Name = Convert.ToString(RoomsQuerry.Rows[i][1]);
+                    newRoom.Short_name = Convert.ToString(RoomsQuerry.Rows[i][2]);
+                    newRoom.Temp_user = UsersList.Find(x=>x.User_id == Convert.ToInt32(RoomsQuerry.Rows[i][3]));
+                    newRoom.User = UsersList.Find(x => x.User_id == Convert.ToInt32(RoomsQuerry.Rows[i][4]));
+                    RoomsList.Add(newRoom);
                 }
             }
             catch (Exception ex) { ErrorsList.Add(ex); }
@@ -178,7 +185,7 @@ namespace UP._02_ver._2
                 System.Data.DataTable ProgramsQuerry = MsSQL.Select("SELECT * FROM [Programs]", DBModule.Pages.Settings.ConnectionString);
                 for (int i = 0; i < ProgramsQuerry.Rows.Count; i++)
                 {
-                    ProgramsList.Add(new Classes.Programs(Convert.ToInt32(ProgramsQuerry.Rows[i][0]), Convert.ToString(ProgramsQuerry.Rows[i][1]), Convert.ToInt32(ProgramsQuerry.Rows[i][2]), Convert.ToString(ProgramsQuerry.Rows[i][3])));
+                    ProgramsList.Add(new Classes.Programs(Convert.ToInt32(ProgramsQuerry.Rows[i][0]), Convert.ToString(ProgramsQuerry.Rows[i][1]),DevelopersList.Find(x=>x.Developer_id== Convert.ToInt32(ProgramsQuerry.Rows[i][2])) , Convert.ToString(ProgramsQuerry.Rows[i][3])));
                 }
             }
             catch (Exception ex) { ErrorsList.Add(ex); }

@@ -40,9 +40,6 @@ namespace UP._02_ver._2.Pages.Equipment
         }
         public void LoadData()
         {
-            Name.SetText(curEquipment.Name);
-            Cost.SetText(curEquipment.Cost.ToString());
-            Comment.SetText(curEquipment.Comment);
             User.ItemsSource = mainWindow.UsersList;
             TempUser.ItemsSource = mainWindow.UsersList;
             Direction.ItemsSource = mainWindow.DirectionsList;
@@ -53,6 +50,9 @@ namespace UP._02_ver._2.Pages.Equipment
         public void LoadData(Classes.Equipment curEquipment)
         {
             LoadData();
+            Name.SetText(curEquipment.Name);
+            Cost.SetText(curEquipment.Cost.ToString());
+            Comment.SetText(curEquipment.Comment);
             User.SelectedItem = curEquipment.User;
             TempUser.SelectedItem = curEquipment.Temp_user;
             Model.SelectedItem = curEquipment.Model;

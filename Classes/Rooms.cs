@@ -12,9 +12,9 @@ namespace UP._02_ver._2.Classes
         public int Room_id { get; set; }
         public string Name { get; set; }
         public string Short_name { get; set; }
-        public int Temp_user { get; set; }
-        public int User { get; set; }
-        public Rooms(int room_id, string name, string short_name, int temp_user,int user)
+        public Users Temp_user { get; set; }
+        public Users User { get; set; }
+        public Rooms(int room_id, string name, string short_name, Users temp_user,Users user)
         {
             this.Room_id = room_id;
             this.Name = name;

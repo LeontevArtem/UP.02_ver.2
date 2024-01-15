@@ -10,9 +10,9 @@ namespace UP._02_ver._2.Classes
     {
         public int Program_id { get; set; }
         public string Name { get; set; }
-        public int Developer { get; set; }
+        public Developers Developer { get; set; }
         public string Version { get; set; }
-        public Programs(int program_id, string name, int developer, string version)
+        public Programs(int program_id, string name, Developers developer, string version)
         {
             this.Program_id = program_id;
             this.Name = name;
