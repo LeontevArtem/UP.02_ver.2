@@ -1,10 +1,12 @@
 ﻿using DocumentFormat.OpenXml;
 using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
+using GroupDocs.Conversion;
+using GroupDocs.Conversion.Options.Convert;
+using System.IO;
 using System.Windows.Controls;
 using System.Windows.Forms;
 using System.Windows.Input;
-
 
 namespace Reports.Pages
 {
@@ -16,20 +18,18 @@ namespace Reports.Pages
         public Main()
         {
             InitializeComponent();
-
         }
         string report_type; string date; string name; string equipment; string serial_number; int price;
         public void AddClick(object sender, MouseButtonEventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
             saveFileDialog.DefaultExt = "docx";
-            if (cd.SelectedIndex == 0) saveFileDialog.FileName = "приема-передачи оборудования на временное пользование.docx";
-            else if (cd.SelectedIndex == 1) saveFileDialog.FileName = "приема-передачи расходных материалов.docx";
-            else if (cd.SelectedIndex == 2) saveFileDialog.FileName = "приема-передачи оборудования.docx";
+            if (cd.SelectedIndex == 0) saveFileDialog.FileName = "приема-передачи оборудования на временное пользование";
+            else if (cd.SelectedIndex == 1) saveFileDialog.FileName = "приема-передачи расходных материалов";
+            else if (cd.SelectedIndex == 2) saveFileDialog.FileName = "приема-передачи оборудования";
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
-
-                using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(saveFileDialog.FileName, WordprocessingDocumentType.Document))
+                using (WordprocessingDocument wordDocument = WordprocessingDocument.Create(saveFileDialog.FileName+".docx", WordprocessingDocumentType.Document))
                 {
                     MainDocumentPart mainPart = wordDocument.AddMainDocumentPart();
                     mainPart.Document = new Document();
@@ -93,6 +93,15 @@ namespace Reports.Pages
                         }
                     }
                     mainPart.Document.Save();
+
+                }
+                if (CheckPDF.IsChecked == true)
+                {
+                    using (var converter = new Converter(saveFileDialog.FileName+".docx"))
+                    {
+                        converter.Convert(saveFileDialog.FileName+".pdf", new PdfConvertOptions());
+                        File.Delete(saveFileDialog.FileName + ".docx");
+                    }
                 }
             }
         }
