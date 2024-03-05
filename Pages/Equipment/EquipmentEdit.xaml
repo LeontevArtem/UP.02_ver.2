@@ -21,21 +21,25 @@
                 <uc:TextBox1 x:Name="Cost" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,100,0,0"/>
                 <Label Content="Коментарий:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,135,0,0"/>
                 <uc:TextBox1 x:Name="Comment" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,165,0,0"/>
-                <StackPanel Margin="370,5,10,0" Orientation="Vertical">
-                    <Label Content="Ответственный пользователь:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
-                    <ComboBox x:Name="User" VerticalAlignment="Top" MinHeight="30" UseLayoutRounding="False"  DisplayMemberPath="FullName" />
-                    <Label Content="Временно ответственный пользователь:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
-                    <ComboBox x:Name="TempUser" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="FullName"/>
-                    <Label Content="Направление:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
-                    <ComboBox x:Name="Direction" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="Name"/>
-                    <Label Content="Модель:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
-                    <ComboBox x:Name="Model" VerticalAlignment="Top" MinHeight="30" DisplayMemberPath="Name"/>
-                    <Label Content="Тип:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
-                    <ComboBox x:Name="Type" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="Name"/>
-                </StackPanel>
-                
+                <ScrollViewer Margin="370,5,10,0">
+                    <StackPanel  Orientation="Vertical">
+                        <Label Content="Ответственный пользователь:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <ComboBox x:Name="User" VerticalAlignment="Top" MinHeight="30" UseLayoutRounding="False"  DisplayMemberPath="FullName" />
+                        <Label Content="Временно ответственный пользователь:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <ComboBox x:Name="TempUser" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="FullName"/>
+                        <Label Content="Направление:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <ComboBox x:Name="Direction" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="Name"/>
+                        <Label Content="Модель:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <ComboBox x:Name="Model" VerticalAlignment="Top" MinHeight="30" DisplayMemberPath="Name"/>
+                        <Label Content="Тип:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <ComboBox x:Name="Type" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="Name"/>
+                        <Label Content="Аудитория" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <ComboBox x:Name="Room" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="Name"/>
+                    </StackPanel>
+                </ScrollViewer>
             </Grid>
         </ScrollViewer>
         <uc:Button1 x:Name="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="10" XAMLText="Назад" XAMLTextColor="White" MouseDown="BackClick"/>
+        <uc:Button1 x:Name="Save" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="120,10,10,10" XAMLText="Сохранить" XAMLTextColor="White" MouseDown="SaveClick"/>
     </Grid>
 </Page>
