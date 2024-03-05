@@ -121,6 +121,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Rooms\RoomsEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Rooms\RoomsElement\RoomsElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Rooms\RoomsMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Users\UserElements\UserElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -157,6 +169,15 @@
     </Compile>
     <Compile Include="Pages\Regin\ReginSteps\Step3.xaml.cs">
       <DependentUpon>Step3.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Rooms\RoomsEdit.xaml.cs">
+      <DependentUpon>RoomsEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Rooms\RoomsElement\RoomsElement.xaml.cs">
+      <DependentUpon>RoomsElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Rooms\RoomsMain.xaml.cs">
+      <DependentUpon>RoomsMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Users\UserElements\UserElement.xaml.cs">
       <DependentUpon>UserElement.xaml</DependentUpon>
@@ -211,5 +232,6 @@
   <ItemGroup>
     <Resource Include="Images\placeholder.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

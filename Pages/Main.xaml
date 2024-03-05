@@ -18,7 +18,7 @@
             <Grid x:Name="BodyGrid" >
                 <WrapPanel Orientation="Horizontal">
                     <uc:Button1 x:Name="Equipment" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Оборудование" MouseDown="EquipmentClick"/>
-                    <uc:Button1 x:Name="Rooms" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Аудитории"/>
+                    <uc:Button1 x:Name="Rooms" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Аудитории" MouseDown="RoomsClick"/>
                     <uc:Button1 x:Name="Users" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Пользователи" MouseDown="UserClick"/>
                     <uc:Button1 x:Name="Developers" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Разработчики"/>
                     <uc:Button1 x:Name="Types" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Типы оборудования"/>

@@ -34,6 +34,10 @@ namespace UP._02_ver._2.Pages
         public void EquipmentClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(new Pages.Equipment.EquipmentMain(mainWindow,this));
+        } 
+        public void RoomsClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new Pages.Rooms.RoomsMain(mainWindow,this));
         }
         public void ReportsClick(object sender, MouseButtonEventArgs e)
         {
