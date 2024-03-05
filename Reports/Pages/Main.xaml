@@ -20,7 +20,8 @@
                 <ComboBoxItem Content="приема-передачи оборудования"/>
             </ComboBox>
             <CheckBox x:Name="CheckPDF" Margin="215,17,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Content="Формат PDF" Width="90"/>
-            <uc:Button1 VerticalAlignment="Bottom" XAMLTextColor="White" XAMLBackgroundColor="#00ABE4" Margin="10,0,10,5"  Height="30" MouseDown="AddClick" Grid.ColumnSpan="3"/>
+            <uc:Button1 VerticalAlignment="Bottom" XAMLText="Создать" XAMLTextColor="White" XAMLBackgroundColor="#00ABE4" Margin="140,0,10,5"  Height="30" MouseDown="AddClick"/>
+            <uc:Button1 x:Name="BackButton" XAMLText="Назад" VerticalAlignment="Bottom" XAMLTextColor="White" XAMLBackgroundColor="#00ABE4" Margin="10,0,0,5"  Height="30" HorizontalAlignment="Left" Width="130"/>
         </Grid>
     </Grid>
 </Page>

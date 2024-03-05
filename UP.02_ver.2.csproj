@@ -195,6 +195,14 @@
       <Project>{4C442CB2-1D75-4C18-8FE4-7CDB1CA75E63}</Project>
       <Name>DBModule</Name>
     </ProjectReference>
+    <ProjectReference Include="importBD\importBD.csproj">
+      <Project>{c7319238-3646-42a7-b79f-2634b24a1681}</Project>
+      <Name>importBD</Name>
+    </ProjectReference>
+    <ProjectReference Include="Reports\Reports.csproj">
+      <Project>{fb1df246-29e9-4889-8c6c-f413aa19e50c}</Project>
+      <Name>Reports</Name>
+    </ProjectReference>
     <ProjectReference Include="WpfControlLibrary2\WpfControlLibrary2.csproj">
       <Project>{4dab1482-3151-4c99-844a-db7ef85cd1da}</Project>
       <Name>WpfControlLibrary2</Name>

@@ -23,7 +23,6 @@ namespace Reports
         public MainWindow()
         {
             InitializeComponent();
-            frame.Navigate(new Pages.Main());
         }
     }
 }

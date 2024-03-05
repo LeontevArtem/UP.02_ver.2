@@ -22,6 +22,8 @@
                     <uc:Button1 x:Name="Users" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Пользователи" MouseDown="UserClick"/>
                     <uc:Button1 x:Name="Developers" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Разработчики"/>
                     <uc:Button1 x:Name="Types" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Типы оборудования"/>
+                    <uc:Button1 x:Name="Reports" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Отчет" MouseDown="ReportsClick"/>
+                    <uc:Button1 x:Name="Import" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Импорт" MouseDown="ImportClick"/>
                 </WrapPanel>
             </Grid>
         </ScrollViewer>

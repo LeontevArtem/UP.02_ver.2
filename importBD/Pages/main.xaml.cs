@@ -1,5 +1,6 @@
 ﻿using DBModule.Classes;
 using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Controls;
@@ -16,10 +17,15 @@ namespace importBD.Pages
     /// </summary>
     public partial class main : Page
     {
-        public main()
+        Func<Page, int> BackClick;
+        Page ParrentPage;
+        public main(Page parrentPage, Func<Page, int> BackClick)
         {
-            InitializeComponent(); 
+            InitializeComponent();
             ExcelPackage.LicenseContext = LicenseContext.NonCommercial;
+            BackButton.MouseDown += delegate { BackClick(parrentPage); };
+            this.BackClick = BackClick;
+            this.ParrentPage = parrentPage;
         }
         public void importClick(object sender, MouseButtonEventArgs e)
         {

@@ -14,7 +14,8 @@
             <Label Content="Импорт данных в базу данных" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
         </Grid>
         <Grid Margin="0,50,0,0">
-            <uc:Button1 VerticalAlignment="Bottom" Margin="10,5" Height="30" MouseDown="importClick"/>
+            <uc:Button1 VerticalAlignment="Bottom" XAMLTextColor="White" XAMLText="Импортировать" Margin="184,0,10,5" Height="30" MouseDown="importClick"/>
+            <uc:Button1 x:Name="BackButton" XAMLTextColor="White" XAMLText="Назад" VerticalAlignment="Bottom" Margin="10,0,0,5" Height="30" HorizontalAlignment="Left" Width="174"/>
         </Grid>
     </Grid>
 </Page>

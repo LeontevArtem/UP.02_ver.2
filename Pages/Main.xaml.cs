@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UP._02_ver._2.Classes;
 
 namespace UP._02_ver._2.Pages
 {
@@ -33,6 +34,14 @@ namespace UP._02_ver._2.Pages
         public void EquipmentClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(new Pages.Equipment.EquipmentMain(mainWindow,this));
+        }
+        public void ReportsClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new importBD.Pages.main(this, mainWindow.OpenPage));
+        }
+        public void ImportClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new Reports.Pages.Main(this, mainWindow.OpenPage));
         }
     }
 }

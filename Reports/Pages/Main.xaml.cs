@@ -3,6 +3,7 @@ using DocumentFormat.OpenXml.Packaging;
 using DocumentFormat.OpenXml.Wordprocessing;
 using GroupDocs.Conversion;
 using GroupDocs.Conversion.Options.Convert;
+using System;
 using System.IO;
 using System.Windows.Controls;
 using System.Windows.Forms;
@@ -15,9 +16,15 @@ namespace Reports.Pages
     /// </summary>
     public partial class Main : Page
     {
-        public Main()
+        Func<Page, int> BackClick;
+        Page ParrentPage;
+
+        public Main(Page parrentPage, Func<Page, int> BackClick)
         {
             InitializeComponent();
+            BackButton.MouseDown += delegate { BackClick(parrentPage); };
+            this.BackClick = BackClick;
+            this.ParrentPage = parrentPage;
         }
         string report_type; string date; string name; string equipment; string serial_number; int price;
         public void AddClick(object sender, MouseButtonEventArgs e)
