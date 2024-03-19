@@ -20,9 +20,9 @@
                 <Label Content="Краткое имя:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,70,0,0"/>
                 <uc:TextBox1 x:Name="Short_name" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,100,0,0"/>
                 <Label Content="Временный пользователь:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,135,0,0"/>
-                <ComboBox x:Name="Temp_user" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,165,0,0"  MinHeight="30" DisplayMemberPath="Temp_user"/>
+                <ComboBox x:Name="Temp_user" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,165,0,0"  MinHeight="30" DisplayMemberPath="FullName"/>
                 <Label Content="Ответственные пользователь:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,200,0,0"/>
-                <ComboBox x:Name="User" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,230,0,0"  MinHeight="30" DisplayMemberPath="User"/>
+                <ComboBox x:Name="User" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,230,0,0"  MinHeight="30" DisplayMemberPath="FullName"/>
             </Grid>
         </ScrollViewer>
         <uc:Button1 x:Name="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="10" XAMLText="Назад" XAMLTextColor="White" MouseDown="BackClick"/>

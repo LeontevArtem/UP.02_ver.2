@@ -1,4 +1,5 @@
-﻿using DocumentFormat.OpenXml.Drawing.Diagrams;
+﻿using DBModule.Classes;
+using DocumentFormat.OpenXml.Drawing.Diagrams;
 using DocumentFormat.OpenXml.EMMA;
 using System;
 using System.Collections.Generic;
@@ -44,7 +45,6 @@ namespace UP._02_ver._2.Pages.Rooms
         {
             User.ItemsSource = mainWindow.UsersList;
             Temp_user.ItemsSource = mainWindow.UsersList;
-
         }
         public void LoadData(Classes.Rooms rooms)
         {
@@ -61,6 +61,36 @@ namespace UP._02_ver._2.Pages.Rooms
         }
         public void SaveClick(object sender, MouseButtonEventArgs e)
         {
+            try
+            {
+                if (rooms == null)
+                {
+                    System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Rooms]([Name],[Short_name],[Temp_user],[User]) VALUES ('" +
+                        $"{Name.GetText()}','" +
+                        $"{Short_name.GetText()}','" +
+                        $"{(Temp_user.SelectedItem as Classes.Users).User_id}','" +
+                        $"{(User.SelectedItem as Classes.Users).User_id}')",
+                        DBModule.Pages.Settings.ConnectionString);
+                }
+                else
+                {
+                    System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Rooms] SET " +
+                        $"[Name] = '{Name.GetText()}'," +
+                        $"[Short_name] = '{Short_name.GetText()}'," +
+                        $"[Temp_user] = '{(Temp_user.SelectedItem as Classes.Users).User_id}'," +
+                        $"[User] = '{(User.SelectedItem as Classes.Users).User_id}' " +
+                        $"WHERE RoomID = '{rooms.Room_id}'", DBModule.Pages.Settings.ConnectionString);
+                }
+                MessageBox.Show("Успешно");
+                mainWindow.LoadData(0);
+                mainWindow.OpenPage(ParrentPage);
+                (ParrentPage as Pages.Rooms.RoomsMain).ShowEquipment();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }
