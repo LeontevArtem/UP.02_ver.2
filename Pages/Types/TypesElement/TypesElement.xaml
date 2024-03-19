@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="UP._02_ver._2.Pages.Types.TypesElement.TypesElement"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UP._02_ver._2.Pages.Types.TypesElement"
+      mc:Ignorable="d">
+
+    <Border Background="#FFBFBFBF" CornerRadius="8" Margin="10">
+        <Grid x:Name="Parrent" Margin="10">
+            <Image x:Name="Image" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="100" Source="../../../Images/placeholder.png"/>
+            <Label x:Name="Name" Content="Тип оборудования" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="176,10,0,0" FontSize="14" FontWeight="Bold"/>
+            <TextBlock x:Name="Comment" Text="Комментарий" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,150,0,0" FontSize="14" FontWeight="Bold"/>
+
+
+        </Grid>
+    </Border>
+</UserControl>

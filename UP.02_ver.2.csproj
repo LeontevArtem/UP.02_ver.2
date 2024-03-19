@@ -133,6 +133,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Types\TypesEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Types\TypesElement\TypesElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Types\TypesMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Users\UserElements\UserElement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -178,6 +190,15 @@
     </Compile>
     <Compile Include="Pages\Rooms\RoomsMain.xaml.cs">
       <DependentUpon>RoomsMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Types\TypesEdit.xaml.cs">
+      <DependentUpon>TypesEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Types\TypesElement\TypesElement.xaml.cs">
+      <DependentUpon>TypesElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Types\TypesMain.xaml.cs">
+      <DependentUpon>TypesMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Users\UserElements\UserElement.xaml.cs">
       <DependentUpon>UserElement.xaml</DependentUpon>

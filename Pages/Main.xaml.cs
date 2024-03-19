@@ -47,5 +47,9 @@ namespace UP._02_ver._2.Pages
         {
             mainWindow.OpenPage(new Reports.Pages.Main(this, mainWindow.OpenPage));
         }
+        public void TypeClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new Pages.Types.TypesMain(mainWindow,this));
+        }
     }
 }
