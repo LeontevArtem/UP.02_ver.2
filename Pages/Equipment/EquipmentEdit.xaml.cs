@@ -68,6 +68,7 @@ namespace UP._02_ver._2.Pages.Equipment
         }
         public void SaveClick(object sender, MouseButtonEventArgs e)
         {
+            //Денчик ушлепок
             try
             {
                 if (curEquipment == null)
