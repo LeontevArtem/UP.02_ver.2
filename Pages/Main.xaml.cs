@@ -50,6 +50,10 @@ namespace UP._02_ver._2.Pages
         public void TypeClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(new Pages.Types.TypesMain(mainWindow,this));
+        } 
+        public void DirectionsClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new Pages.Directions.DirectionsMain(mainWindow,this));
         }
     }
 }
