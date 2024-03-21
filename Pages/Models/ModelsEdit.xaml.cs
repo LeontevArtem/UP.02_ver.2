@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UP._02_ver._2.Classes;
 
 namespace UP._02_ver._2.Pages.Models
 {
@@ -48,10 +49,27 @@ namespace UP._02_ver._2.Pages.Models
             LoadData();
             Name.SetText(curModels.Name);
             Type.SelectedItem = mainWindow.EquipmentTypesList.Find(x=> x.Type_id == curModels.Type);
+            Delete.Visibility = Visibility.Visible;
         }
         public void BackClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(ParrentPage);
+        }
+        public void DeleteClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                System.Data.DataTable UserQuerry = MsSQL.Select($"DELETE FROM [dbo].[Models] WHERE ModelID = '{curModels.Model_id}'",
+                           DBModule.Pages.Settings.ConnectionString);
+                MessageBox.Show("Успешно");
+                mainWindow.LoadData(0);
+                mainWindow.OpenPage(ParrentPage);
+                (ParrentPage as Pages.Models.ModelsMain).ShowEquipment();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public void SaveClick(object sender, MouseButtonEventArgs e)
         {

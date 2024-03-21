@@ -53,11 +53,27 @@ namespace UP._02_ver._2.Pages.Rooms
             Short_name.SetText(rooms.Short_name.ToString());
             Temp_user.SelectedItem = rooms.Temp_user;
             User.SelectedItem = rooms.User;
-           
+            Delete.Visibility = Visibility.Visible;
         }
         public void BackClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(ParrentPage);
+        }
+        public void DeleteClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                System.Data.DataTable UserQuerry = MsSQL.Select($"DELETE FROM [dbo].[Rooms] WHERE RoomID = '{rooms.Room_id}'",
+                           DBModule.Pages.Settings.ConnectionString);
+                MessageBox.Show("Успешно");
+                mainWindow.LoadData(0);
+                mainWindow.OpenPage(ParrentPage);
+                (ParrentPage as Pages.Rooms.RoomsMain).ShowEquipment();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public void SaveClick(object sender, MouseButtonEventArgs e)
         {

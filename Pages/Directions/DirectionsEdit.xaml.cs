@@ -45,11 +45,28 @@ namespace UP._02_ver._2.Pages.Directions
         public void LoadData(Classes.Directions curEquipment)
         {
             Name.SetText(curEquipment.Name);
+            Delete.Visibility = Visibility.Visible;
         
         }
         public void BackClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(ParrentPage);
+        }
+        public void DeleteClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                System.Data.DataTable UserQuerry = MsSQL.Select($"DELETE FROM [dbo].[Directions] WHERE DirectionID = '{curDirections.Direction_id}'",
+                           DBModule.Pages.Settings.ConnectionString);
+                MessageBox.Show("Успешно");
+                mainWindow.LoadData(0);
+                mainWindow.OpenPage(ParrentPage);
+                (ParrentPage as Pages.Directions.DirectionsMain).ShowEquipment();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public void SaveClick(object sender, MouseButtonEventArgs e)
         {

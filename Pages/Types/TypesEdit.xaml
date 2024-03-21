@@ -21,5 +21,6 @@
         </ScrollViewer>
         <uc:Button1 x:Name="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="10" XAMLText="Назад" XAMLTextColor="White" MouseDown="BackClick"/>
         <uc:Button1 x:Name="Save" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="120,10,10,10" XAMLText="Сохранить" XAMLTextColor="White" MouseDown="SaveClick"/>
+        <uc:Button1 x:Name="Delete" Visibility="Hidden" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="225,0,0,10" XAMLText="Удалить" XAMLTextColor="White" MouseDown="DeleteClick"/>
     </Grid>
 </Page>

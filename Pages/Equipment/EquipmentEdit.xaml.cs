@@ -61,10 +61,27 @@ namespace UP._02_ver._2.Pages.Equipment
             Type.SelectedItem = curEquipment.Type;
             Direction.SelectedItem = curEquipment.Direction;
             Room.SelectedItem = curEquipment.Room;
+            Delete.Visibility = Visibility.Visible;
         }
         public void BackClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(ParrentPage);
+        }
+        public void DeleteClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                System.Data.DataTable UserQuerry = MsSQL.Select($"DELETE FROM [dbo].[Equipment] WHERE EquipmentID = '{curEquipment.Equipment_id}'",
+                           DBModule.Pages.Settings.ConnectionString);
+                MessageBox.Show("Успешно");
+                mainWindow.LoadData(0);
+                mainWindow.OpenPage(ParrentPage);
+                (ParrentPage as Pages.Equipment.EquipmentMain).ShowEquipment();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public void SaveClick(object sender, MouseButtonEventArgs e)
         {
