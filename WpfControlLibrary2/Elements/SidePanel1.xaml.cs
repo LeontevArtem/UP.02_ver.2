@@ -51,7 +51,7 @@ namespace WpfControlLibrary2.Elements
         {
             InitializeComponent();
             this.orientation = PanelOrientation.left;
-            this.mode = PanelMode.close;
+            this.mode = PanelMode.open;
         }
 
 
