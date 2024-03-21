@@ -55,5 +55,9 @@ namespace UP._02_ver._2.Pages
         {
             mainWindow.OpenPage(new Pages.Directions.DirectionsMain(mainWindow,this));
         }
+        public void ModelsClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new Pages.Models.ModelsMain(mainWindow,this));
+        }
     }
 }
