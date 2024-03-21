@@ -21,6 +21,7 @@
                 <uc:TextBox1 x:Name="Cost" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,100,0,0"/>
                 <Label Content="Коментарий:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,135,0,0"/>
                 <uc:TextBox1 x:Name="Comment" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,165,0,0"/>
+                <uc:ImageBrowser x:Name="Img" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,210,0,0" Width="200" Height="200"/>
                 <ScrollViewer Margin="370,5,10,0">
                     <StackPanel  Orientation="Vertical">
                         <Label Content="Ответственный пользователь:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />

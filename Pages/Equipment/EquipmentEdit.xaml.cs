@@ -73,7 +73,7 @@ namespace UP._02_ver._2.Pages.Equipment
                 if (curEquipment == null)
                 {
                     System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Equipment]([Name],[Image],[Room],[User],[Temp_user],[Cost],[Direction],[Model],[Type]) VALUES ('" +
-                        $"{Name.GetText()}','{0}','" +
+                        $"{Name.GetText()}','{Img.GetStringImage()}','" +
                         $"{(Room.SelectedItem as Classes.Rooms).Room_id}','" +
                         $"{(User.SelectedItem as Classes.Users).User_id}','" +
                         $"{(TempUser.SelectedItem as Classes.Users).User_id}','" +
@@ -87,7 +87,7 @@ namespace UP._02_ver._2.Pages.Equipment
                 {
                     System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Equipment] SET " +
                         $"[Name] = '{Name.GetText()}'," +
-                        $"[Image] = '{0}'," +
+                        $"[Image] = '{Img.GetStringImage()}'," +
                         $"[Room] = '{(Room.SelectedItem as Classes.Rooms).Room_id}'," +
                         $"[User] = '{(User.SelectedItem as Classes.Users).User_id}'," +
                         $"[Temp_user] = '{(TempUser.SelectedItem as Classes.Users).User_id}'," +

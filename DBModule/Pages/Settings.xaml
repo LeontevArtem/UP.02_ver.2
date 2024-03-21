@@ -10,10 +10,14 @@
       Title="Settings">
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="77*"/>
+            <RowDefinition Height="13*"/>
+        </Grid.RowDefinitions>
         <Grid x:Name="TopGrid" Height="50" VerticalAlignment="Top" Background="#E9F1FA">
             <Label Content="Настройки" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
         </Grid>
-        <Grid x:Name="BodyGrid" Margin="0,50,0,0" Background="White">
+        <Grid x:Name="BodyGrid" Margin="0,50,0,0" Background="White" Grid.RowSpan="2">
             <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Hidden" Margin="0,0,0,50">
                 <Grid>
                     <Label Content="База данных" FontSize="16" FontWeight="DemiBold" Margin="10,10,0,0" VerticalAlignment="Top" HorizontalAlignment="Left"/>

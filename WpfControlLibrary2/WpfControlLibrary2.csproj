@@ -52,6 +52,9 @@
     <Compile Include="Elements\Button1.xaml.cs">
       <DependentUpon>Button1.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Elements\ImageBrowser.xaml.cs">
+      <DependentUpon>ImageBrowser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Elements\PasswordBox1.xaml.cs">
       <DependentUpon>PasswordBox1.xaml</DependentUpon>
     </Compile>
@@ -66,6 +69,10 @@
     </Compile>
     <Compile Include="Resources.cs" />
     <Page Include="Elements\Button1.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Elements\ImageBrowser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -126,6 +133,8 @@
   <ItemGroup>
     <Resource Include="Images\cross.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Elements\img1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="WpfControlLibrary2.Elements.ImageBrowser"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfControlLibrary2.Elements"
+             mc:Ignorable="d" 
+             Height="200" Width="160" >
+    <Grid >
+        <Border Background="#FFD7D7D7" CornerRadius="13">
+            <Grid x:Name="parrent">
+                <Border VerticalAlignment="Top" Margin="5,5,5,45" x:Name="imgBorder">
+                    <Border.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border CornerRadius="5" Width="100" Height="100" Background="White"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Border.OpacityMask>
+                    <Image x:Name="img" Source="/Images/img1.png" Stretch="Fill"/>
+                </Border>
+                <local:Button1 x:Name="Select" VerticalAlignment="Bottom" Margin="5" XAMLText="Выбрать" XAMLTextColor="White"/>
+            </Grid>
+
+        </Border>
+    </Grid>
+</UserControl>
