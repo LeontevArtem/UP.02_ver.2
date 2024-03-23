@@ -70,7 +70,7 @@ namespace UP._02_ver._2.Pages
 
         private void Inventorization_MouseDown(object sender, MouseButtonEventArgs e)
         {
-
+            mainWindow.OpenPage(new Pages.Inventory.InventoryMain(mainWindow, this));
         }
     }
 }

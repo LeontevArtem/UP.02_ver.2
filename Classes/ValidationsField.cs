@@ -52,5 +52,16 @@ namespace UP._02_ver._2.Classes
             }
             return false;
         }
+        public bool ValidationsDate(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return false;
+            else
+            {
+                DateTime dDate;
+                if (DateTime.TryParse(text, out dDate)) return true;
+                else MessageBox.Show("Дата не корректна");
+            }
+            return false;
+        }
     }
 }

@@ -123,6 +123,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Inventory\InventoryEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Inventory\InventoryElement\InventoryElements.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Inventory\InventoryMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -231,6 +243,15 @@
     </Compile>
     <Compile Include="Pages\Equipment\EquipmentMain.xaml.cs">
       <DependentUpon>EquipmentMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inventory\InventoryEdit.xaml.cs">
+      <DependentUpon>InventoryEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inventory\InventoryElement\InventoryElements.xaml.cs">
+      <DependentUpon>InventoryElements.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Inventory\InventoryMain.xaml.cs">
+      <DependentUpon>InventoryMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
