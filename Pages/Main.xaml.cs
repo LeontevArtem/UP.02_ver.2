@@ -59,5 +59,10 @@ namespace UP._02_ver._2.Pages
         {
             mainWindow.OpenPage(new Pages.Models.ModelsMain(mainWindow,this));
         }
+
+        private void Inventorization_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+
+        }
     }
 }
