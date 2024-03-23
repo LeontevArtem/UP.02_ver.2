@@ -35,7 +35,7 @@ namespace UP._02_ver._2.Pages.Equipment.EquipmentElements
             TempUser.Content = $"{curEquipment.Temp_user.Surname} {curEquipment.Temp_user.Name} {curEquipment.Temp_user.Patronymic}";
             Price.Content = curEquipment.Cost;
             Direction.Content = curEquipment.Direction.Name;
-            Status.Content = curEquipment.Status;
+            Status.Content = curEquipment.Comment;
             Model.Content = curEquipment.Model.Name;
             Comment.Text = curEquipment.Name;
             Image.HideButton();

@@ -20,7 +20,7 @@
             <Label x:Name="Direction" Content="Направление" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,110,0,0" FontSize="14" FontWeight="Bold"/>
             <Label x:Name="Status" Content="Статус" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="350,110,0,0" FontSize="14" FontWeight="Bold"/>
             <Label x:Name="Model" Content="Модель" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,110,0,0" FontSize="14" FontWeight="Bold"/>
-            <TextBlock x:Name="Comment" Text="Комментарий" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,150,0,0" FontSize="14" FontWeight="Bold"/>
+            <TextBlock x:Name="Comment" Text="Статус" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,150,0,0" FontSize="14" FontWeight="Bold"/>
         </Grid>
     </Border>
 </UserControl>

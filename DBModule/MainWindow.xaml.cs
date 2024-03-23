@@ -24,13 +24,13 @@ namespace DBModule
         {
             InitializeComponent();
         }
-        public static string ServerStr = "SD\\ADM";
-        public static string DatabaseStr = "base1_is_20_40";
-        public static string UserStr = "sa";
-        public static string PwdStr = "Asdfg123!";
-        //public static string ServerStr = "DESKTOP-ARTEM";
-        //public static string DatabaseStr = "UP.02";
-        //public static string PwdStr = "sa";
+        //public static string ServerStr = "SD\\ADM";
+        //public static string DatabaseStr = "base1_is_20_40";
         //public static string UserStr = "sa";
+        //public static string PwdStr = "Asdfg123!";
+        public static string ServerStr = "DESKTOP-ARTEM";
+        public static string DatabaseStr = "UP.02";
+        public static string PwdStr = "sa";
+        public static string UserStr = "sa";
     }
 }

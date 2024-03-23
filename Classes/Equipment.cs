@@ -12,9 +12,9 @@
         public Classes.Directions Direction { get; set; }
         public Classes.Models Model { get; set; }
         public Classes.Equipment_types Type { get; set; }
-        public string Status { get; set; }
         public string Comment { get; set; }
-        public Equipment(int equipment_id, string name, string image, Classes.Rooms room, Classes.Users user, Classes.Users temp_user, int cost, Classes.Directions direction, Classes.Models model, Classes.Equipment_types type, string status)
+        public Programs Programs { get; set; }
+        public Equipment(int equipment_id, string name, string image, Classes.Rooms room, Classes.Users user, Classes.Users temp_user, int cost, Classes.Directions direction, Classes.Models model, Classes.Equipment_types type, Programs programs)
         {
             this.Equipment_id = equipment_id;
             this.Name = name;
@@ -26,7 +26,7 @@
             this.Direction = direction;
             this.Model = model;
             this.Type = type;
-            this.Status = status;
+            this.Programs = programs;
         }
         public Equipment()
         {
