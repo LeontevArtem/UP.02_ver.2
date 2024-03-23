@@ -1,18 +1,10 @@
 ﻿using DBModule.Classes;
+using DocumentFormat.OpenXml.EMMA;
+using DocumentFormat.OpenXml.Wordprocessing;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace UP._02_ver._2.Pages.Equipment
 {
@@ -24,7 +16,8 @@ namespace UP._02_ver._2.Pages.Equipment
         MainWindow mainWindow;
         Page ParrentPage;
         Classes.Equipment curEquipment;
-        public EquipmentEdit(MainWindow mainWindow,Page ParrenrPage)
+        Classes.ValidationsField validationsField = new Classes.ValidationsField();
+        public EquipmentEdit(MainWindow mainWindow, Page ParrenrPage)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
@@ -87,43 +80,49 @@ namespace UP._02_ver._2.Pages.Equipment
         {
             try
             {
-                if (curEquipment == null)
+                if (validationsField.ValidationsOnlyText(Name.GetText()) && validationsField.ValidationsOnlyNumber(Cost.GetText())
+                    && Room.SelectedItem != null && User.SelectedItem != null && TempUser.SelectedItem != null && Direction.SelectedItem != null
+                    && Model.SelectedItem != null && Type.SelectedItem != null)
                 {
-                    System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Equipment]([Name],[Image],[Room],[User],[Temp_user],[Cost],[Direction],[Model],[Type]) VALUES ('" +
-                        $"{Name.GetText()}','{Img.GetStringImage()}','" +
-                        $"{(Room.SelectedItem as Classes.Rooms).Room_id}','" +
-                        $"{(User.SelectedItem as Classes.Users).User_id}','" +
-                        $"{(TempUser.SelectedItem as Classes.Users).User_id}','" +
-                        $"{Cost.GetText()}','" +
-                        $"{(Direction.SelectedItem as Classes.Directions).Direction_id}','" +
-                        $"{(Model.SelectedItem as Classes.Models).Model_id}','" +
-                        $"{(Type.SelectedItem as Classes.Equipment_types).Type_id}')", 
-                        DBModule.Pages.Settings.ConnectionString);
+                    if (curEquipment == null)
+                    {
+                        System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Equipment]([Name],[Image],[Room],[User],[Temp_user],[Cost],[Direction],[Model],[Type]) VALUES ('" +
+                            $"{Name.GetText()}','{Img.GetStringImage()}','" +
+                            $"{(Room.SelectedItem as Classes.Rooms).Room_id}','" +
+                            $"{(User.SelectedItem as Classes.Users).User_id}','" +
+                            $"{(TempUser.SelectedItem as Classes.Users).User_id}','" +
+                            $"{Cost.GetText()}','" +
+                            $"{(Direction.SelectedItem as Classes.Directions).Direction_id}','" +
+                            $"{(Model.SelectedItem as Classes.Models).Model_id}','" +
+                            $"{(Type.SelectedItem as Classes.Equipment_types).Type_id}')",
+                            DBModule.Pages.Settings.ConnectionString);
+                    }
+                    else
+                    {
+                        System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Equipment] SET " +
+                            $"[Name] = '{Name.GetText()}'," +
+                            $"[Image] = '{Img.GetStringImage()}'," +
+                            $"[Room] = '{(Room.SelectedItem as Classes.Rooms).Room_id}'," +
+                            $"[User] = '{(User.SelectedItem as Classes.Users).User_id}'," +
+                            $"[Temp_user] = '{(TempUser.SelectedItem as Classes.Users).User_id}'," +
+                            $"[Cost] = '{Cost.GetText()}'," +
+                            $"[Direction] = '{(Direction.SelectedItem as Classes.Directions).Direction_id}'," +
+                            $"[Model] = '{(Model.SelectedItem as Classes.Models).Model_id}'," +
+                            $"[Type] = '{(Type.SelectedItem as Classes.Equipment_types).Type_id}' " +
+                            $"WHERE EquipmentID = '{curEquipment.Equipment_id}'", DBModule.Pages.Settings.ConnectionString);
+                    }
+                    MessageBox.Show("Успешно");
+                    mainWindow.LoadData(0);
+                    mainWindow.OpenPage(ParrentPage);
+                    (ParrentPage as Pages.Equipment.EquipmentMain).ShowEquipment();
                 }
-                else
-                {
-                    System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Equipment] SET " +
-                        $"[Name] = '{Name.GetText()}'," +
-                        $"[Image] = '{Img.GetStringImage()}'," +
-                        $"[Room] = '{(Room.SelectedItem as Classes.Rooms).Room_id}'," +
-                        $"[User] = '{(User.SelectedItem as Classes.Users).User_id}'," +
-                        $"[Temp_user] = '{(TempUser.SelectedItem as Classes.Users).User_id}'," +
-                        $"[Cost] = '{Cost.GetText()}'," +
-                        $"[Direction] = '{(Direction.SelectedItem as Classes.Directions).Direction_id}'," +
-                        $"[Model] = '{(Model.SelectedItem as Classes.Models).Model_id}'," +
-                        $"[Type] = '{(Type.SelectedItem as Classes.Equipment_types).Type_id}' " +
-                        $"WHERE EquipmentID = '{curEquipment.Equipment_id}'", DBModule.Pages.Settings.ConnectionString);
-                }
-                MessageBox.Show("Успешно");
-                mainWindow.LoadData(0);
-                mainWindow.OpenPage(ParrentPage);
-                (ParrentPage as Pages.Equipment.EquipmentMain).ShowEquipment();
+                else MessageBox.Show("Заполните все поля");
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            
+
         }
 
     }

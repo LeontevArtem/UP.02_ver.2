@@ -26,6 +26,7 @@ namespace UP._02_ver._2.Pages.Rooms
         MainWindow mainWindow;
         Page ParrentPage;
         Classes.Rooms rooms;
+        Classes.ValidationsField validationsField = new Classes.ValidationsField();
         public RoomsEdit(MainWindow mainWindow, Page ParrenrPage)
         {
             InitializeComponent();
@@ -79,28 +80,33 @@ namespace UP._02_ver._2.Pages.Rooms
         {
             try
             {
-                if (rooms == null)
+                if (validationsField.ValidationsOnlyText(Name.GetText()) && validationsField.ValidationsShortName(Short_name.GetText())
+                    && Temp_user.SelectedItem != null && User.SelectedItem != null)
                 {
-                    System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Rooms]([Name],[Short_name],[Temp_user],[User]) VALUES ('" +
-                        $"{Name.GetText()}','" +
-                        $"{Short_name.GetText()}','" +
-                        $"{(Temp_user.SelectedItem as Classes.Users).User_id}','" +
-                        $"{(User.SelectedItem as Classes.Users).User_id}')",
-                        DBModule.Pages.Settings.ConnectionString);
+                    if (rooms == null)
+                    {
+                        System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Rooms]([Name],[Short_name],[Temp_user],[User]) VALUES ('" +
+                            $"{Name.GetText()}','" +
+                            $"{Short_name.GetText()}','" +
+                            $"{(Temp_user.SelectedItem as Classes.Users).User_id}','" +
+                            $"{(User.SelectedItem as Classes.Users).User_id}')",
+                            DBModule.Pages.Settings.ConnectionString);
+                    }
+                    else
+                    {
+                        System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Rooms] SET " +
+                            $"[Name] = '{Name.GetText()}'," +
+                            $"[Short_name] = '{Short_name.GetText()}'," +
+                            $"[Temp_user] = '{(Temp_user.SelectedItem as Classes.Users).User_id}'," +
+                            $"[User] = '{(User.SelectedItem as Classes.Users).User_id}' " +
+                            $"WHERE RoomID = '{rooms.Room_id}'", DBModule.Pages.Settings.ConnectionString);
+                    }
+                    MessageBox.Show("Успешно");
+                    mainWindow.LoadData(0);
+                    mainWindow.OpenPage(ParrentPage);
+                    (ParrentPage as Pages.Rooms.RoomsMain).ShowEquipment();
                 }
-                else
-                {
-                    System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Rooms] SET " +
-                        $"[Name] = '{Name.GetText()}'," +
-                        $"[Short_name] = '{Short_name.GetText()}'," +
-                        $"[Temp_user] = '{(Temp_user.SelectedItem as Classes.Users).User_id}'," +
-                        $"[User] = '{(User.SelectedItem as Classes.Users).User_id}' " +
-                        $"WHERE RoomID = '{rooms.Room_id}'", DBModule.Pages.Settings.ConnectionString);
-                }
-                MessageBox.Show("Успешно");
-                mainWindow.LoadData(0);
-                mainWindow.OpenPage(ParrentPage);
-                (ParrentPage as Pages.Rooms.RoomsMain).ShowEquipment();
+                else MessageBox.Show("Заполните все поля");
             }
             catch (Exception ex)
             {
