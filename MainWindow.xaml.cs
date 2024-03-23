@@ -198,7 +198,16 @@ namespace UP._02_ver._2
                     newEquipment.Direction = DirectionsList.Find(x => x.Direction_id == Convert.ToInt32(EquipmentQuerry.Rows[i][7]));
                     newEquipment.Model = ModelsList.Find(x => x.Model_id == Convert.ToInt32(EquipmentQuerry.Rows[i][8]));
                     newEquipment.Type = EquipmentTypesList.Find(x => x.Type_id == Convert.ToInt32(EquipmentQuerry.Rows[i][9]));
-                    newEquipment.Status = "";
+                    try
+                    {
+                        newEquipment.Programs = ProgramsList.Find(x => x.Program_id == Convert.ToInt32(EquipmentQuerry.Rows[i][10]));
+                    }
+                    catch { }
+                    try
+                    {
+                        newEquipment.Comment = Convert.ToString(EquipmentQuerry.Rows[i][11]);
+                    }
+                    catch { }
                     EquipmentList.Add(newEquipment);
 
 
@@ -234,7 +243,7 @@ namespace UP._02_ver._2
                 {
                     foreach (InventorizationEquipment inventorizationEquipment in TempData)
                     {
-                        if(inventory.Inventory_id == inventorizationEquipment.Inventory.Inventory_id)
+                        if (inventory.Inventory_id == inventorizationEquipment.Inventory.Inventory_id)
                         {
                             inventory.Equipment.Add(inventorizationEquipment.Equipment);
                         }
