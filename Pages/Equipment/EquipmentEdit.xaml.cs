@@ -86,7 +86,7 @@ namespace UP._02_ver._2.Pages.Equipment
             {
                 if (validationsField.ValidationsOnlyText(Name.GetText()) && validationsField.ValidationsOnlyNumber(Cost.GetText())
                     && Room.SelectedItem != null && User.SelectedItem != null && TempUser.SelectedItem != null && Direction.SelectedItem != null
-                    && Model.SelectedItem != null && Type.SelectedItem != null)
+                    && Model.SelectedItem != null && Type.SelectedItem != null && Programm.SelectedItem != null)
                 {
                     if (curEquipment == null)
                     {
@@ -98,9 +98,9 @@ namespace UP._02_ver._2.Pages.Equipment
                             $"{Cost.GetText()}','" +
                             $"{(Direction.SelectedItem as Classes.Directions).Direction_id}','" +
                             $"{(Model.SelectedItem as Classes.Models).Model_id}','" +
-                            $"{(Type.SelectedItem as Classes.Equipment_types).Type_id}')," +
+                            $"{(Type.SelectedItem as Classes.Equipment_types).Type_id}'," +
                             $"'{(Programm.SelectedItem as Classes.Programs).Program_id}','" +
-                            $"{Comment.GetText()}'",
+                            $"{Comment.GetText()}')",
                             DBModule.Pages.Settings.ConnectionString);
                     }
                     else
