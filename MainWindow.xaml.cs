@@ -62,6 +62,7 @@ namespace UP._02_ver._2
         public List<Classes.Models> ModelsList = new List<Classes.Models>();
         public List<Classes.Programs> ProgramsList = new List<Classes.Programs>();
         public List<Classes.Rooms> RoomsList = new List<Classes.Rooms>();
+        public List<InventorizationEquipment> TempData = new List<InventorizationEquipment>();
         public int OpenPage(Page ToPage)
         {
             DoubleAnimation opgrid = new DoubleAnimation();
@@ -169,16 +170,6 @@ namespace UP._02_ver._2
                 }
             }
             catch (Exception ex) { ErrorsList.Add(ex); }
-            //Inventory
-            try
-            {
-                System.Data.DataTable InventoryQuerry = MsSQL.Select("SELECT * FROM [Inventory]", DBModule.Pages.Settings.ConnectionString);
-                for (int i = 0; i < InventoryQuerry.Rows.Count; i++)
-                {
-                    InventoryList.Add(new Classes.Inventory(Convert.ToInt32(InventoryQuerry.Rows[i][0]), Convert.ToDateTime(InventoryQuerry.Rows[i][1]), Convert.ToDateTime(InventoryQuerry.Rows[i][2])));
-                }
-            }
-            catch (Exception ex) { ErrorsList.Add(ex); }
             //Programs
             try
             {
@@ -211,6 +202,43 @@ namespace UP._02_ver._2
                     EquipmentList.Add(newEquipment);
 
 
+                }
+            }
+            catch (Exception ex) { ErrorsList.Add(ex); }
+            //Inventory
+            try
+            {
+                System.Data.DataTable InventoryQuerry = MsSQL.Select("SELECT * FROM [Inventorization]", DBModule.Pages.Settings.ConnectionString);
+                for (int i = 0; i < InventoryQuerry.Rows.Count; i++)
+                {
+                    Inventory inventory = new Inventory();
+                    inventory.Inventory_id = Convert.ToInt32(InventoryQuerry.Rows[i][0]);
+                    inventory.Date_start = Convert.ToDateTime(InventoryQuerry.Rows[i][1]);
+                    inventory.Date_end = Convert.ToDateTime(InventoryQuerry.Rows[i][2]);
+                    inventory.Name = Convert.ToString(InventoryQuerry.Rows[i][3]);
+                    inventory.Comment = Convert.ToString(InventoryQuerry.Rows[i][4]);
+                    inventory.User = UsersList.Find(x => x.User_id == Convert.ToInt32(InventoryQuerry.Rows[i][5]));
+                    inventory.Equipment = new List<Equipment>();
+                    InventoryList.Add(inventory);
+                }
+                System.Data.DataTable ListQuerry = MsSQL.Select("SELECT * FROM [InventorizationEquipment]", DBModule.Pages.Settings.ConnectionString);
+                for (int j = 0; j < ListQuerry.Rows.Count; j++)
+                {
+                    int ID = Convert.ToInt32(ListQuerry.Rows[j][0]);
+                    int InvID = Convert.ToInt32(ListQuerry.Rows[j][1]);
+                    int EquipID = Convert.ToInt32(ListQuerry.Rows[j][2]);
+                    TempData.Add(new InventorizationEquipment(ID, InventoryList.Find(x => x.Inventory_id == InvID), EquipmentList.Find(x => x.Equipment_id == EquipID)));
+                }
+                List<Equipment> inventoryEquipment = new List<Equipment>();
+                foreach (Inventory inventory in InventoryList)
+                {
+                    foreach (InventorizationEquipment inventorizationEquipment in TempData)
+                    {
+                        if(inventory.Inventory_id == inventorizationEquipment.Inventory.Inventory_id)
+                        {
+                            inventory.Equipment.Add(inventorizationEquipment.Equipment);
+                        }
+                    }
                 }
             }
             catch (Exception ex) { ErrorsList.Add(ex); }
