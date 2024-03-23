@@ -82,6 +82,7 @@
     <Compile Include="Classes\Report.cs" />
     <Compile Include="Classes\Rooms.cs" />
     <Compile Include="Classes\Users.cs" />
+    <Compile Include="Classes\ValidationsField.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

@@ -25,6 +25,7 @@ namespace UP._02_ver._2.Pages.Models
         MainWindow mainWindow;
         Page ParrentPage;
         Classes.Models curModels;
+        Classes.ValidationsField validationsField = new Classes.ValidationsField();
         public ModelsEdit(MainWindow mainWindow, Page ParrenrPage)
         {
             InitializeComponent();
@@ -75,23 +76,27 @@ namespace UP._02_ver._2.Pages.Models
         {
             try
             {
-                if (curModels == null)
+                if (validationsField.ValidationsOnlyText(Name.GetText()) && Type.SelectedItem != null)
                 {
-                    System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Models]([Name],[Type]) VALUES ('" +
-                        $"{Name.GetText()}','{(Type.SelectedItem as Classes.Equipment_types).Type_id}')",
-                        DBModule.Pages.Settings.ConnectionString);
+                    if (curModels == null)
+                    {
+                        System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Models]([Name],[Type]) VALUES ('" +
+                            $"{Name.GetText()}','{(Type.SelectedItem as Classes.Equipment_types).Type_id}')",
+                            DBModule.Pages.Settings.ConnectionString);
+                    }
+                    else
+                    {
+                        System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Models] SET " +
+                            $"[Name] = '{Name.GetText()}'," +
+                            $"[Type] = '{(Type.SelectedItem as Classes.Equipment_types).Type_id}'" +
+                            $" WHERE ModelID = '{curModels.Model_id}'", DBModule.Pages.Settings.ConnectionString);
+                    }
+                    MessageBox.Show("Успешно");
+                    mainWindow.LoadData(0);
+                    mainWindow.OpenPage(ParrentPage);
+                    (ParrentPage as Pages.Models.ModelsMain).ShowEquipment();
                 }
-                else
-                {
-                    System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Models] SET " +
-                        $"[Name] = '{Name.GetText()}'," +
-                        $"[Type] = '{(Type.SelectedItem as Classes.Equipment_types).Type_id}'" +
-                        $" WHERE ModelID = '{curModels.Model_id}'", DBModule.Pages.Settings.ConnectionString);
-                }
-                MessageBox.Show("Успешно");
-                mainWindow.LoadData(0);
-                mainWindow.OpenPage(ParrentPage);
-                (ParrentPage as Pages.Models.ModelsMain).ShowEquipment();
+                else MessageBox.Show("Заполните все поля");
             }
             catch (Exception ex)
             {

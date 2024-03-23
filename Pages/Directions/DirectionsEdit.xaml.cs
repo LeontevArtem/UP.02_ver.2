@@ -26,12 +26,13 @@ namespace UP._02_ver._2.Pages.Directions
         MainWindow mainWindow;
         Page ParrentPage;
         Classes.Directions curDirections;
+        Classes.ValidationsField validationsField = new Classes.ValidationsField();
         public DirectionsEdit(MainWindow mainWindow, Page ParrenrPage)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
             this.ParrentPage = ParrenrPage;
-        
+            
         }
         public DirectionsEdit(MainWindow mainWindow, Page ParrenrPage, Classes.Directions curDirections)
         {
@@ -72,21 +73,24 @@ namespace UP._02_ver._2.Pages.Directions
         {
             try
             {
-                if (curDirections == null)
+                if (validationsField.ValidationsOnlyText(Name.GetText()))
                 {
-                    System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Directions]([Name]) VALUES ('" +
-                        $"{Name.GetText()}')",
-                        DBModule.Pages.Settings.ConnectionString);
+                    if (curDirections == null)
+                    {
+                        System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Directions]([Name]) VALUES ('" +
+                            $"{Name.GetText()}')",
+                            DBModule.Pages.Settings.ConnectionString);
+                    }
+                    else
+                    {
+                        System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Directions] SET " +
+                            $"[Name] = '{Name.GetText()}' WHERE DirectionID = '{curDirections.Direction_id}'", DBModule.Pages.Settings.ConnectionString);
+                    }
+                    MessageBox.Show("Успешно");
+                    mainWindow.LoadData(0);
+                    mainWindow.OpenPage(ParrentPage);
+                    (ParrentPage as Pages.Directions.DirectionsMain).ShowEquipment();
                 }
-                else
-                {
-                    System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Directions] SET " +
-                        $"[Name] = '{Name.GetText()}' WHERE DirectionID = '{curDirections.Direction_id}'", DBModule.Pages.Settings.ConnectionString);
-                }
-                MessageBox.Show("Успешно");
-                mainWindow.LoadData(0);
-                mainWindow.OpenPage(ParrentPage);
-                (ParrentPage as Pages.Directions.DirectionsMain).ShowEquipment();
             }
             catch (Exception ex)
             {

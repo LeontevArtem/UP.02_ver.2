@@ -26,6 +26,7 @@ namespace UP._02_ver._2.Pages.Types
         MainWindow mainWindow;
         Page ParrentPage;
         Classes.Equipment_types types;
+        Classes.ValidationsField validationsField = new Classes.ValidationsField();
         public TypesEdit(MainWindow mainWindow, Page ParrenrPage)
         {
             InitializeComponent();
@@ -71,21 +72,25 @@ namespace UP._02_ver._2.Pages.Types
         {
             try
             {
-                if (types == null)
+                if (validationsField.ValidationsOnlyText(Name.GetText()))
                 {
-                    System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Equipment_types]([Name]) VALUES ('" +
-                        $"{Name.GetText()}')",
-                        DBModule.Pages.Settings.ConnectionString);
+                    if (types == null)
+                    {
+                        System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Equipment_types]([Name]) VALUES ('" +
+                            $"{Name.GetText()}')",
+                            DBModule.Pages.Settings.ConnectionString);
+                    }
+                    else
+                    {
+                        System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Equipment_types] SET " +
+                            $"[Name] = '{Name.GetText()}' WHERE TypeID = '{types.Type_id}'", DBModule.Pages.Settings.ConnectionString);
+                    }
+                    MessageBox.Show("Успешно");
+                    mainWindow.LoadData(0);
+                    mainWindow.OpenPage(ParrentPage);
+                    (ParrentPage as Pages.Types.TypesMain).ShowEquipment();
                 }
-                else
-                {
-                    System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Equipment_types] SET " +
-                        $"[Name] = '{Name.GetText()}' WHERE TypeID = '{types.Type_id}'", DBModule.Pages.Settings.ConnectionString);
-                }
-                MessageBox.Show("Успешно");
-                mainWindow.LoadData(0);
-                mainWindow.OpenPage(ParrentPage);
-                (ParrentPage as Pages.Types.TypesMain).ShowEquipment();
+                else MessageBox.Show("Заполните все поля");
             }
             catch (Exception ex)
             {
