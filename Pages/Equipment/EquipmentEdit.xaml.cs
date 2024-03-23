@@ -87,7 +87,7 @@ namespace UP._02_ver._2.Pages.Equipment
                 {
                     if (curEquipment == null)
                     {
-                        System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Equipment]([Name],[Image],[Room],[User],[Temp_user],[Cost],[Direction],[Model],[Type]) VALUES ('" +
+                        System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Equipment]([Name],[Image],[Room],[User],[Temp_user],[Cost],[Direction],[Model],[Type],[Programm],[Comment]) VALUES ('" +
                             $"{Name.GetText()}','{Img.GetStringImage()}','" +
                             $"{(Room.SelectedItem as Classes.Rooms).Room_id}','" +
                             $"{(User.SelectedItem as Classes.Users).User_id}','" +
@@ -95,7 +95,9 @@ namespace UP._02_ver._2.Pages.Equipment
                             $"{Cost.GetText()}','" +
                             $"{(Direction.SelectedItem as Classes.Directions).Direction_id}','" +
                             $"{(Model.SelectedItem as Classes.Models).Model_id}','" +
-                            $"{(Type.SelectedItem as Classes.Equipment_types).Type_id}')",
+                            $"{(Type.SelectedItem as Classes.Equipment_types).Type_id}')," +
+                            $"'{(Programm.SelectedItem as Classes.Programs).Program_id}','" +
+                            $"{Comment.GetText()}'",
                             DBModule.Pages.Settings.ConnectionString);
                     }
                     else
@@ -109,7 +111,9 @@ namespace UP._02_ver._2.Pages.Equipment
                             $"[Cost] = '{Cost.GetText()}'," +
                             $"[Direction] = '{(Direction.SelectedItem as Classes.Directions).Direction_id}'," +
                             $"[Model] = '{(Model.SelectedItem as Classes.Models).Model_id}'," +
-                            $"[Type] = '{(Type.SelectedItem as Classes.Equipment_types).Type_id}' " +
+                            $"[Type] = '{(Type.SelectedItem as Classes.Equipment_types).Type_id}'," +
+                            $"[Programm] = '{(Programm.SelectedItem as Classes.Programs).Program_id}'," +
+                            $"[Comment] = '{Comment.GetText()}' " +
                             $"WHERE EquipmentID = '{curEquipment.Equipment_id}'", DBModule.Pages.Settings.ConnectionString);
                     }
                     MessageBox.Show("Успешно");

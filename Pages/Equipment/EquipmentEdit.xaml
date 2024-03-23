@@ -36,6 +36,8 @@
                         <ComboBox x:Name="Type" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="Name"/>
                         <Label Content="Аудитория" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
                         <ComboBox x:Name="Room" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="Name"/>
+                        <Label Content="Программа" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" />
+                        <ComboBox x:Name="Programm" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="Name"/>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>
