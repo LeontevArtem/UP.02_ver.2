@@ -38,6 +38,8 @@ namespace UP._02_ver._2.Pages.Equipment.EquipmentElements
             Status.Content = curEquipment.Status;
             Model.Content = curEquipment.Model.Name;
             Comment.Text = curEquipment.Name;
+            Image.HideButton();
+            Image.SetImage(curEquipment.Image);
         }
     }
 }

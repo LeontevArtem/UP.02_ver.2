@@ -75,6 +75,7 @@
     <Compile Include="Classes\Directions.cs" />
     <Compile Include="Classes\Equipment.cs" />
     <Compile Include="Classes\Equipment_types.cs" />
+    <Compile Include="Classes\InventorizationEquipment.cs" />
     <Compile Include="Classes\Inventory.cs" />
     <Compile Include="Classes\Models.cs" />
     <Compile Include="Classes\Programs.cs" />

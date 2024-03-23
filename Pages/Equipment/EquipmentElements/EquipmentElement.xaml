@@ -4,12 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:UP._02_ver._2.Pages.Equipment.EquipmentElements"
+             xmlns:uc ="clr-namespace:WpfControlLibrary2.Elements;assembly=WpfControlLibrary2"
              mc:Ignorable="d" 
              >
     
     <Border Background="#FFBFBFBF" CornerRadius="8" Margin="10">
         <Grid x:Name="Parrent" Margin="10">
-            <Image x:Name="Image" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="100" Source="../../../Images/placeholder.png"/>
+            <uc:ImageBrowser x:Name="Image" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="100" />
             <Label x:Name="Name" Content="Название" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,10,0,0" FontSize="14" FontWeight="Bold"/>
             <Label x:Name="InventoryNumber" Content="Инвентарный номер" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,40,0,0" FontSize="14" FontWeight="Bold"/>
             <Label x:Name="Room" Content="Аудитория" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,70,0,0" FontSize="14" FontWeight="Bold"/>

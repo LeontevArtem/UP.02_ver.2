@@ -16,7 +16,8 @@
         </Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" Margin="5,55,5,0" >
             <Grid x:Name="BodyGrid" >
-                <WrapPanel Orientation="Horizontal">
+                <uc:Button1 x:Name="Inventorization" XAMLTextColor="White" Margin="2"  Height="150" XAMLText="Инвенторизация" MouseDown="Inventorization_MouseDown"  VerticalAlignment="Top"/>
+                <WrapPanel Orientation="Horizontal" Margin="0,155,0,0">
                     <uc:Button1 x:Name="Equipment" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Оборудование" MouseDown="EquipmentClick"/>
                     <uc:Button1 x:Name="Rooms" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Аудитории" MouseDown="RoomsClick"/>
                     <uc:Button1 x:Name="Users" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Пользователи" MouseDown="UserClick"/>

@@ -55,6 +55,7 @@ namespace UP._02_ver._2.Pages.Equipment
             Direction.SelectedItem = curEquipment.Direction;
             Room.SelectedItem = curEquipment.Room;
             Delete.Visibility = Visibility.Visible;
+            Img.SetImage(curEquipment.Image);
         }
         public void BackClick(object sender, MouseButtonEventArgs e)
         {

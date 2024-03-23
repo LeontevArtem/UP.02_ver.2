@@ -11,12 +11,20 @@ namespace UP._02_ver._2.Classes
         public int Inventory_id { get; set; }
         public DateTime Date_start { get; set; }
         public DateTime Date_end { get; set; }
-        public Inventory(int inventory_id, DateTime date_start, DateTime date_end )
+        public string Name { get; set; }
+        public string Comment { get; set; }
+        public Users User { get; set; }
+        public List<Equipment> Equipment { get; set; }
+        public Inventory(int inventory_id, DateTime date_start, DateTime date_end ,string Name,string Comment,Users User)
         {
             this.Inventory_id = inventory_id;
             this.Date_start = date_start;
             this.Date_end = date_end;
+            this.Name = Name;
+            this.Comment = Comment;
+            this.User = User;
         }
+        public Inventory() { }
         //public static void Add(MainWindow mainWindow, DateTime date_start, DateTime date_end)
         //{
 

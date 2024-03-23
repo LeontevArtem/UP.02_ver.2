@@ -66,10 +66,12 @@ namespace WpfControlLibrary2.Elements
         public void HideButton()
         {
             Select.Visibility = Visibility.Collapsed;
+            imgBorder.Margin = new Thickness(5,5,5,5);
         }
         public void ShowButton()
         {
             Select.Visibility = Visibility.Visible;
+            imgBorder.Margin = new Thickness(5, 5, 5, 45);
         }
         public string Image;
         public void SetImage(string Image)
