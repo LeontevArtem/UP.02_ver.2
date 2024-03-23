@@ -86,6 +86,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Developers\DevelopersEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Developers\DevelopersElements\DevelopersElements.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Developers\DevelopersMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Directions\DirectionsEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -180,6 +192,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\Developers\DevelopersEdit.xaml.cs">
+      <DependentUpon>DevelopersEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Developers\DevelopersElements\DevelopersElements.xaml.cs">
+      <DependentUpon>DevelopersElements.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Developers\DevelopersMain.xaml.cs">
+      <DependentUpon>DevelopersMain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Directions\DirectionsEdit.xaml.cs">
       <DependentUpon>DirectionsEdit.xaml</DependentUpon>
     </Compile>

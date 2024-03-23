@@ -20,7 +20,7 @@
                     <uc:Button1 x:Name="Equipment" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Оборудование" MouseDown="EquipmentClick"/>
                     <uc:Button1 x:Name="Rooms" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Аудитории" MouseDown="RoomsClick"/>
                     <uc:Button1 x:Name="Users" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Пользователи" MouseDown="UserClick"/>
-                    <uc:Button1 x:Name="Developers" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Разработчики"/>
+                    <uc:Button1 x:Name="Developers" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Разработчики" MouseDown="DevelopersClick"/>
                     <uc:Button1 x:Name="Types" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Типы оборудования" MouseDown="TypeClick"/>
                     <uc:Button1 x:Name="Reports" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Отчет" MouseDown="ReportsClick"/>
                     <uc:Button1 x:Name="Import" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Импорт" MouseDown="ImportClick"/>

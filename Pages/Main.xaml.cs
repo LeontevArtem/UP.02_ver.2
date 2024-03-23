@@ -58,6 +58,10 @@ namespace UP._02_ver._2.Pages
         public void ModelsClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(new Pages.Models.ModelsMain(mainWindow,this));
+        }  
+        public void DevelopersClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new Pages.Developers.DevelopersMain(mainWindow,this));
         }
     }
 }
