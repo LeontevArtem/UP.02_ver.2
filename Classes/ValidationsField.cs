@@ -27,7 +27,7 @@ namespace UP._02_ver._2.Classes
             if (string.IsNullOrEmpty(text)) return false;
             else
             {
-                if (Regex.IsMatch(text.Trim(), @"^[А-Яа-я]+$")) return true;
+                if (Regex.IsMatch(text.Trim(), @"^[A-Za-zА-Яа-я]+$")) return true;
                 else MessageBox.Show("В строке присудствуют лишние символы");
             }
             return false;
@@ -37,7 +37,17 @@ namespace UP._02_ver._2.Classes
             if (string.IsNullOrEmpty(text)) return false;
             else
             {
-                if (Regex.IsMatch(text.Trim(), @"^[А-Яа-я0-9]+$")) return true;
+                if (Regex.IsMatch(text.Trim(), @"^[A-Za-zА-Яа-я0-9]+$")) return true;
+                else MessageBox.Show("В строке присудствуют лишние символы");
+            }
+            return false;
+        }
+        public bool ValidationsVersion(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return false;
+            else
+            {
+                if (Regex.IsMatch(text.Trim(), @"^[A-Za-z0-9.-]+$")) return true;
                 else MessageBox.Show("В строке присудствуют лишние символы");
             }
             return false;

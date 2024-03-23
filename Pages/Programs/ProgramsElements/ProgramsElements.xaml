@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="UP._02_ver._2.Pages.Programs.ProgramsElements.ProgramsElements"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:UP._02_ver._2.Pages.Programs.ProgramsElements"
+             mc:Ignorable="d"  >
+    <Border Background="#FFBFBFBF" CornerRadius="8" Margin="10">
+        <Grid x:Name="Parrent" Margin="10">
+            <Image x:Name="Image" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="100" Source="../../../Images/placeholder.png"/>
+            <Label x:Name="Name" Content="Программа" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,10,0,0" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="Version" Content="Версия" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,50,0,0" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="Develop" Content="Разработчик" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="180,91,0,0" FontSize="14" FontWeight="Bold"/>
+        </Grid>
+    </Border>
+</UserControl>

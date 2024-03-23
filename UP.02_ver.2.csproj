@@ -143,6 +143,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Programs\ProgramsEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Programs\ProgramsElements\ProgramsElements.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Programs\ProgramsMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Regin\ReginMain.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -234,6 +246,15 @@
     </Compile>
     <Compile Include="Pages\Models\ModelsMain.xaml.cs">
       <DependentUpon>ModelsMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Programs\ProgramsEdit.xaml.cs">
+      <DependentUpon>ProgramsEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Programs\ProgramsElements\ProgramsElements.xaml.cs">
+      <DependentUpon>ProgramsElements.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Programs\ProgramsMain.xaml.cs">
+      <DependentUpon>ProgramsMain.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Regin\ReginMain.xaml.cs">
       <DependentUpon>ReginMain.xaml</DependentUpon>

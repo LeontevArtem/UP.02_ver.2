@@ -208,7 +208,7 @@ namespace UP._02_ver._2
             //Inventory
             try
             {
-                System.Data.DataTable InventoryQuerry = MsSQL.Select("SELECT * FROM [Inventorization]", DBModule.Pages.Settings.ConnectionString);
+               /* System.Data.DataTable InventoryQuerry = MsSQL.Select("SELECT * FROM [Inventorization]", DBModule.Pages.Settings.ConnectionString);
                 for (int i = 0; i < InventoryQuerry.Rows.Count; i++)
                 {
                     Inventory inventory = new Inventory();
@@ -239,7 +239,7 @@ namespace UP._02_ver._2
                             inventory.Equipment.Add(inventorizationEquipment.Equipment);
                         }
                     }
-                }
+                }*/
             }
             catch (Exception ex) { ErrorsList.Add(ex); }
             if (ErrorsList.Count != 0) Block();

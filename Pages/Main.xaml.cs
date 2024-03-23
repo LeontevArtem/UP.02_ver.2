@@ -62,6 +62,10 @@ namespace UP._02_ver._2.Pages
         public void DevelopersClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(new Pages.Developers.DevelopersMain(mainWindow,this));
+        } 
+        public void ProgramsClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new Pages.Programs.ProgramsMain(mainWindow,this));
         }
 
         private void Inventorization_MouseDown(object sender, MouseButtonEventArgs e)

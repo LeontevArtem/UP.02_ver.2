@@ -27,6 +27,7 @@
                     <uc:Button1 x:Name="Import" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Импорт" MouseDown="ImportClick"/>
                     <uc:Button1 x:Name="Directions" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Направление" MouseDown="DirectionsClick"/>
                     <uc:Button1 x:Name="Models" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Модели" MouseDown="ModelsClick"/>
+                    <uc:Button1 x:Name="Programs" XAMLTextColor="White" Margin="2" Width="150" Height="150" XAMLText="Программы" MouseDown="ProgramsClick"/>
                 </WrapPanel>
             </Grid>
         </ScrollViewer>
