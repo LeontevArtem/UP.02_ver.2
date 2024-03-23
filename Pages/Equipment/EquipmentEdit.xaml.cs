@@ -40,6 +40,7 @@ namespace UP._02_ver._2.Pages.Equipment
             Model.ItemsSource = mainWindow.ModelsList;
             Type.ItemsSource = mainWindow.EquipmentTypesList;
             Room.ItemsSource = mainWindow.RoomsList;
+            Programm.ItemsSource = mainWindow.ProgramsList;
 
         }
         public void LoadData(Classes.Equipment curEquipment)
@@ -54,6 +55,8 @@ namespace UP._02_ver._2.Pages.Equipment
             Type.SelectedItem = curEquipment.Type;
             Direction.SelectedItem = curEquipment.Direction;
             Room.SelectedItem = curEquipment.Room;
+            Programm.SelectedItem = curEquipment.Programs;
+            Comment.SetText(curEquipment.Comment);
             Delete.Visibility = Visibility.Visible;
             Img.SetImage(curEquipment.Image);
         }
