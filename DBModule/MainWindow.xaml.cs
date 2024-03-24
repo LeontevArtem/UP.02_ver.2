@@ -27,5 +27,7 @@ namespace DBModule
         public static string ServerStr = "SD\\ADM";
         public static string DatabaseStr = "UP.02";
         public static string UserStr = "sa";
+        public static string PwdStr = "Asdfg123!";
+
     }
 }

@@ -72,5 +72,9 @@ namespace UP._02_ver._2.Pages
         {
             mainWindow.OpenPage(new Pages.Inventory.InventoryMain(mainWindow, this));
         }
+        private void ConsumablesClick(object sender, MouseButtonEventArgs e)
+        {
+            mainWindow.OpenPage(new Pages.Consumables.ConsumablesMain(mainWindow, this));
+        }
     }
 }
