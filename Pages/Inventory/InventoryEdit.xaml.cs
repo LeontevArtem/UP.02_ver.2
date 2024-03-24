@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UP._02_ver._2.Classes;
 
 namespace UP._02_ver._2.Pages.Inventory
 {
@@ -54,17 +55,21 @@ namespace UP._02_ver._2.Pages.Inventory
         }
         public void AddClick(object sender, MouseButtonEventArgs e)
         {
-            ListEquipment.Items.Add(equipment.SelectedItem);
-            
-        }
-        private void ListView_MouseDoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            if (ListEquipment.SelectedItems.Count > 0)
+            if(equipment.SelectedItem != null)
             {
-                ListEquipment.Items.Remove(ListEquipment.SelectedItem);
+                Classes.Equipment selectedEquipment = equipment.SelectedItem as Classes.Equipment;
+                Equipment.EquipmentElements.EquipmentElement ItemShow = new Equipment.EquipmentElements.EquipmentElement(selectedEquipment, mainWindow);
+                ItemShow.MouseDown += delegate { DeleteEquipmentClick(ItemShow); };
+                parrent.Children.Add(ItemShow);
             }
         }
-
+        public void DeleteEquipmentClick(Equipment.EquipmentElements.EquipmentElement equipmentElement)
+        {
+            if (MessageBox.Show("Вы действительно хотите удалить это оборудование?","Вопросик",MessageBoxButton.YesNo)==MessageBoxResult.Yes)
+            {
+                parrent.Children.Remove(equipmentElement);
+            }
+        }
         public void BackClick(object sender, MouseButtonEventArgs e)
         {
             mainWindow.OpenPage(ParrentPage);
@@ -73,8 +78,7 @@ namespace UP._02_ver._2.Pages.Inventory
         {
             try
             {
-                System.Data.DataTable UserQuerry = MsSQL.Select($"DELETE FROM [dbo].[Models] WHERE ModelID = '{curInventory.Inventory_id}'",
-                           DBModule.Pages.Settings.ConnectionString);
+                System.Data.DataTable UserQuerry = MsSQL.Select("",DBModule.Pages.Settings.ConnectionString);
                 MessageBox.Show("Успешно");
                 mainWindow.LoadData(0);
                 mainWindow.OpenPage(ParrentPage);
@@ -90,25 +94,30 @@ namespace UP._02_ver._2.Pages.Inventory
             try
             {
                 if (validationsField.ValidationsOnlyText(Name.GetText()) && equipment.SelectedItem != null
-                    && validationsField.ValidationsDate(StartDate.GetText()) && validationsField.ValidationsDate(EndDate.GetText()))
+                    && validationsField.ValidationsDate(StartDate.SelectedDate.ToString()) && validationsField.ValidationsDate(EndDate.SelectedDate.ToString()))
                 {
                     if (curInventory == null)
                     {
-                        System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Models]([Name],[Type]) VALUES ('" +
-                            $"{Name.GetText()}','{(equipment.SelectedItem as Classes.Equipment_types).Type_id}')",
-                            DBModule.Pages.Settings.ConnectionString);
+                        System.Data.DataTable db = MsSQL.Select($"INSERT INTO [dbo].[Inventorization]([DateStart],[DateEnd],[Name],[Comment],[UserID]) VALUES('{StartDate.SelectedDate}','{EndDate.SelectedDate}','{Name.GetText()}','{Comment.GetText()}','{MainWindow.CurrentUser.User_id}'); SELECT SCOPE_IDENTITY();",DBModule.Pages.Settings.ConnectionString);
+                        int LastID = 0;
+                        for (int i = 0; i < db.Rows.Count; i++)
+                        {
+                            LastID = Convert.ToInt32(db.Rows[i][0]);
+                        }
+                        foreach (Equipment.EquipmentElements.EquipmentElement equipmentElement in parrent.Children)
+                        {
+                            System.Data.DataTable InventorizationEquipment = MsSQL.Select($"INSERT INTO [dbo].[InventorizationEquipment]([InventorizationID],[EquipmentID]) VALUES('{LastID}','{equipmentElement.GetEquipment().Equipment_id}')", DBModule.Pages.Settings.ConnectionString);
+
+                        }
                     }
                     else
                     {
-                        System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Models] SET " +
-                            $"[Name] = '{Name.GetText()}'," +
-                            $"[Type] = '{(equipment.SelectedItem as Classes.Equipment_types).Type_id}'" +
-                            $" WHERE ModelID = '{curInventory.Inventory_id}'", DBModule.Pages.Settings.ConnectionString);
+                        System.Data.DataTable ProgramsQuerry = MsSQL.Select($"", DBModule.Pages.Settings.ConnectionString);
                     }
                     MessageBox.Show("Успешно");
                     mainWindow.LoadData(0);
                     mainWindow.OpenPage(ParrentPage);
-                    (ParrentPage as Pages.Models.ModelsMain).ShowEquipment();
+                    //(ParrentPage as Pages.Models.ModelsMain).ShowEquipment();
                 }
                 else MessageBox.Show("Заполните все поля");
             }

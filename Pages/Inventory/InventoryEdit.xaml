@@ -6,7 +6,7 @@
           xmlns:uc ="clr-namespace:WpfControlLibrary2.Elements;assembly=WpfControlLibrary2"
       xmlns:local="clr-namespace:UP._02_ver._2.Pages.Inventory"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="600" d:DesignWidth="1000"
       Title="InventoryEdit">
     <Grid Background="White">
         <Grid x:Name="TopGrid" Height="50" VerticalAlignment="Top" Background="#E9F1FA">
@@ -14,19 +14,21 @@
         </Grid>
         <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Left" Margin="0,50,0,50" >
             <Grid x:Name="BodyGrid">
-                <Label Content="Наименование инвентаризации" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,5,0,0"/>
-                <uc:TextBox1 x:Name="Name" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,35,0,0"/>
-                <Label Content="дата начала инвентаризации" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,70,0,0"/>
-                <uc:TextBox1 x:Name="StartDate" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,100,0,0"/>
-                <Label Content="дата окончания инвентаризации" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,141,0,0"/>
-                <uc:TextBox1 x:Name="EndDate" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,170,0,0"/>
-                <Label Content="Оборудование" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,214,0,0"/>
-                <ComboBox x:Name="equipment" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,248,0,0" DisplayMemberPath="Name"/>
-                <uc:Button1 x:Name="Add" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="300" Margin="10,0,0,31" XAMLText="Добавить" XAMLTextColor="White" MouseDown="AddClick"/>
+                <Label Content="Наименование инвентаризации" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,0,0,0"/>
+                <uc:TextBox1 x:Name="Name" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,30,0,0"/>
+                <Label Content="дата начала инвентаризации" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,65,0,0"/>
+                <DatePicker x:Name="StartDate" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,95,0,0"/>
+                <Label Content="дата окончания инвентаризации" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,130,0,0"/>
+                <DatePicker x:Name="EndDate" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,160,0,0"/>
+                <Label Content="Оборудование" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,260,0,0"/>
+                <ComboBox x:Name="equipment" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300"  DisplayMemberPath="Name" Margin="10,290,0,0"/>
+                <Label Content="Коментарий" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left"   Margin="20,195,0,0"/>
+                <uc:TextBox1 x:Name="Comment" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300"   Margin="10,225,0,0"/>
+                <uc:Button1 x:Name="Add" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="300" Margin="10,0,0,5" XAMLText="Добавить" XAMLTextColor="White" MouseDown="AddClick"/>
 
-                <ListView  x:Name="ListEquipment" DisplayMemberPath="Name" Margin="315,0,10,0" MouseDoubleClick="ListView_MouseDoubleClick">
-                    
-                </ListView>
+                <ScrollViewer  x:Name="ListEquipment" Margin="315,0,10,0">
+                    <StackPanel x:Name="parrent"/>
+                </ScrollViewer>
             </Grid>
         </ScrollViewer>
         <uc:Button1 x:Name="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="10" XAMLText="Назад" XAMLTextColor="White" MouseDown="BackClick"/>

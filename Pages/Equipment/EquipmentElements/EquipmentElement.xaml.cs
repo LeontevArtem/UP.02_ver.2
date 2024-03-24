@@ -41,5 +41,9 @@ namespace UP._02_ver._2.Pages.Equipment.EquipmentElements
             Image.HideButton();
             Image.SetImage(curEquipment.Image);
         }
+        public Classes.Equipment GetEquipment()
+        {
+            return curEquipment;
+        }
     }
 }
