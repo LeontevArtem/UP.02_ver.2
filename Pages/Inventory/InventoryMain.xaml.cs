@@ -32,11 +32,11 @@ namespace UP._02_ver._2.Pages.Inventory
         public void ShowEquipment()
         {
             EquipmentPanel.Children.Clear();
-            foreach (Classes.Inventory model in mainWindow.InventoryList)
+            foreach (Classes.Inventory curInventory in mainWindow.InventoryList)
             {
-               /* Pages.Inventory.InventoryElement.InventoryElements newModels = new Pages.Inventory.InventoryElement.InventoryElements(mainWindow, model);
-                newModels.MouseDown += delegate { ElementClick(model); };
-                EquipmentPanel.Children.Add(newModels);*/
+                Pages.Inventory.InventoryElement.InventoryElements newModels = new Pages.Inventory.InventoryElement.InventoryElements();
+                newModels.MouseDown += delegate { ElementClick(curInventory); };
+                EquipmentPanel.Children.Add(newModels);
             }
             WpfControlLibrary2.Elements.Button1 AddButton = new WpfControlLibrary2.Elements.Button1() { XAMLText = "Добавить", XAMLTextColor = Color.FromRgb(255, 255, 255), Margin = new System.Windows.Thickness(10), Height = 75 };
             AddButton.MouseDown += delegate { AddClick(); };
