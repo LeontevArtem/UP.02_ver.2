@@ -28,6 +28,20 @@ namespace UP._02_ver._2.Pages.Consumables
             this.mainWindow = mainWindow;
             this.ParrentPage = ParrentPage;
             ShowEquipment();
+            WpfControlLibrary2.Elements.Button1 SortByName = new WpfControlLibrary2.Elements.Button1() { XAMLText = "Сортировать по названию", XAMLTextColor = Color.FromRgb(255, 255, 255) };
+            SortByName.MouseDown += delegate
+            {
+                mainWindow.ConsumablesList = mainWindow.ConsumablesList.OrderBy(x => x.Name).ToList();
+                ShowEquipment();
+            };
+            SidePanel.AddChildren(SortByName);
+            WpfControlLibrary2.Elements.Button1 SortByDate = new WpfControlLibrary2.Elements.Button1() { XAMLText = "Сортировать по дате", XAMLTextColor = Color.FromRgb(255, 255, 255) };
+            SortByDate.MouseDown += delegate
+            {
+                mainWindow.ConsumablesList = mainWindow.ConsumablesList.OrderBy(x => x.Date).ToList();
+                ShowEquipment();
+            };
+            SidePanel.AddChildren(SortByDate);
         }
         public void ShowEquipment()
         {

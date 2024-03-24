@@ -8,8 +8,7 @@
 
     <Border Background="#FFBFBFBF" CornerRadius="8" Margin="10">
         <Grid x:Name="Parrent" Margin="10">
-            <Image x:Name="Image" Margin="10" VerticalAlignment="Top" HorizontalAlignment="Left" Width="100" Height="100" Source="../../../Images/placeholder.png"/>
-            <Label x:Name="Name" Content="Тип оборудования" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="176,10,0,0" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="Name" Content="Тип оборудования" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold"/>
         </Grid>
     </Border>
 </UserControl>

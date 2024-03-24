@@ -7,11 +7,11 @@
              mc:Ignorable="d" >
     <Border Background="#FFBFBFBF" CornerRadius="8" Margin="10">
         <Grid x:Name="Parrent" Margin="10">
-            <Label x:Name="StartDate" Content="Дата начала: " VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,10,0,0" FontSize="14" FontWeight="Bold"/>
-            <Label x:Name="EndDate" Content="Дата окончания" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,40,0,0" FontSize="14" FontWeight="Bold"/>
-            <Label x:Name="Name" Content="Название" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10,70,0,0" FontSize="14" FontWeight="Bold"/>
-            <Label x:Name="User" Content="Ответственный пользователь" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="200,10,0,0" FontSize="14" FontWeight="Bold"/>
-            <Label x:Name="Comment" Content="Комментарий" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="200,40,0,0" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="StartDate" Content="Дата начала: " VerticalAlignment="Top" HorizontalAlignment="Left" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="EndDate" Content="Дата окончания" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,40,0,0" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="Name" Content="Название" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,79,0,0" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="User" Content="Ответственный пользователь" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="200,0,0,0" FontSize="14" FontWeight="Bold"/>
+            <Label x:Name="Comment" Content="Комментарий" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="201,40,0,0" FontSize="14" FontWeight="Bold"/>
         </Grid>
     </Border>
 </UserControl>
