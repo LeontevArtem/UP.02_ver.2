@@ -33,8 +33,10 @@ namespace UP._02_ver._2.Pages.Consumables.ConsumablesElement
             count.Content = curConsumables.Count;
             User.Content = curConsumables.User.FullName;
             TempUser.Content = curConsumables.User.FullName;
-            Material_type.Content = curConsumables.Material_type;
-            Image.Source = new BitmapImage(new Uri(curConsumables.Image));
+            EquipmentID.Content = curConsumables.EquipmentID.Name;
+            Image.HideButton();
+            Image.SetImage(curConsumables.Image);
+            
 
         }
     }

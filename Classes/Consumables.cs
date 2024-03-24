@@ -11,14 +11,14 @@ namespace UP._02_ver._2.Classes
         public int Consumable_id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public string Date { get; set; }
+        public DateTime Date { get; set; }
         public string Image { get; set; }
         public int Count { get; set; }
         public Users User { get; set; }
         public Users Temp_user { get; set; }
-        public string Material_type { get; set; }
+        public Equipment EquipmentID { get; set; }
 
-        public Consumables(int consumable_id,string name, string description, string date, string image,int count,Users user, Users temp_user,string material_type)
+        public Consumables(int consumable_id,string name, string description, DateTime date, string image,int count,Users user, Users temp_user, Equipment EquipmentID)
         {
             this.Consumable_id = consumable_id;
             this.Name = name;
@@ -28,7 +28,7 @@ namespace UP._02_ver._2.Classes
             this.Count = count;
             this.User = user;
             this.Temp_user = temp_user;
-            this.Material_type = material_type;
+            this.EquipmentID = EquipmentID;
         }
         //public static void Add(MainWindow mainWindow, string name, string description, DateTime date, string image, int count, int user, int temp_user, string material_type)
         //{
