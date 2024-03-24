@@ -87,6 +87,18 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\Consumables\ConsumablesEdit.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Consumables\ConsumablesElement\ConsumablesElement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Consumables\ConsumablesMain.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Developers\DevelopersEdit.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -217,6 +229,15 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\Consumables\ConsumablesEdit.xaml.cs">
+      <DependentUpon>ConsumablesEdit.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Consumables\ConsumablesElement\ConsumablesElement.xaml.cs">
+      <DependentUpon>ConsumablesElement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Consumables\ConsumablesMain.xaml.cs">
+      <DependentUpon>ConsumablesMain.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Developers\DevelopersEdit.xaml.cs">
       <DependentUpon>DevelopersEdit.xaml</DependentUpon>
     </Compile>
