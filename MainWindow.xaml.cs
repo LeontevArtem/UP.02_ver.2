@@ -101,18 +101,7 @@ namespace UP._02_ver._2
             }
             catch(Exception ex) { ErrorsList.Add(ex); }
 
-            //Consumables
-            try
-            {
-                System.Data.DataTable ConsumablesQuerry = MsSQL.Select("SELECT * FROM [Consumables]", DBModule.Pages.Settings.ConnectionString);
-                for (int i = 0; i < ConsumablesQuerry.Rows.Count; i++)
-                {
-                    ConsumablesList.Add(new Classes.Consumables(Convert.ToInt32(ConsumablesQuerry.Rows[i][0]), Convert.ToString(ConsumablesQuerry.Rows[i][1]), Convert.ToString(ConsumablesQuerry.Rows[i][2]), Convert.ToString(ConsumablesQuerry.Rows[i][3]), Convert.ToString(ConsumablesQuerry.Rows[i][4]), Convert.ToInt32(ConsumablesQuerry.Rows[i][5]),UsersList.Find(x=>x.User_id== Convert.ToInt32(ConsumablesQuerry.Rows[i][6])) , UsersList.Find(x => x.User_id == Convert.ToInt32(ConsumablesQuerry.Rows[i][7])), Convert.ToString(ConsumablesQuerry.Rows[i][8])));
-                }
-            }
-            catch (Exception ex) { ErrorsList.Add(ex); }
-
-            
+         
             //Rooms
             try
             {
@@ -214,6 +203,18 @@ namespace UP._02_ver._2
                 }
             }
             catch (Exception ex) { ErrorsList.Add(ex); }
+            //Consumables
+            try
+            {
+                System.Data.DataTable ConsumablesQuerry = MsSQL.Select("SELECT * FROM [Consumables]", DBModule.Pages.Settings.ConnectionString);
+                for (int i = 0; i < ConsumablesQuerry.Rows.Count; i++)
+                {
+                    ConsumablesList.Add(new Classes.Consumables(Convert.ToInt32(ConsumablesQuerry.Rows[i][0]), Convert.ToString(ConsumablesQuerry.Rows[i][1]), Convert.ToString(ConsumablesQuerry.Rows[i][2]), Convert.ToString(ConsumablesQuerry.Rows[i][3]), Convert.ToString(ConsumablesQuerry.Rows[i][4]), Convert.ToInt32(ConsumablesQuerry.Rows[i][5]), UsersList.Find(x => x.User_id == Convert.ToInt32(ConsumablesQuerry.Rows[i][6])), UsersList.Find(x => x.User_id == Convert.ToInt32(ConsumablesQuerry.Rows[i][7])), EquipmentList.Find(x => x.Equipment_id == Convert.ToInt32(ConsumablesQuerry.Rows[i][8]))));
+                }
+            }
+            catch (Exception ex) { ErrorsList.Add(ex); }
+
+
             //Inventory
             try
             {
