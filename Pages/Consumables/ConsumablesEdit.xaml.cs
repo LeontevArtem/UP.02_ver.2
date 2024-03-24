@@ -44,6 +44,7 @@ namespace UP._02_ver._2.Pages.Consumables
         {
             User.ItemsSource = mainWindow.UsersList;
             TempUser.ItemsSource = mainWindow.UsersList;
+            EquipmentID.ItemsSource = mainWindow.EquipmentList;
         }
 
         public void LoadData(Classes.Consumables curConsumables)
@@ -54,7 +55,7 @@ namespace UP._02_ver._2.Pages.Consumables
             Description.SetText(curConsumables.Description);
             Date.SetText(curConsumables.Date);
             count.SetText(curConsumables.Count.ToString());
-            Material_type.SetText(curConsumables.Material_type);
+            EquipmentID.SelectedItem = curConsumables.EquipmentID;
             User.SelectedItem = curConsumables.User;
             TempUser.SelectedItem = curConsumables.Temp_user;
             Delete.Visibility = Visibility.Visible;
@@ -91,9 +92,10 @@ namespace UP._02_ver._2.Pages.Consumables
                     if (curConsumables == null)
                     {
                         System.Data.DataTable UserQuerry = MsSQL.Select($"INSERT INTO [dbo].[Consumables]([Name],[Description],[ReceiptDate],[Image]" +
-                            $",[Quanity],[ResponsibleUser],[TempResponsibleUser]) VALUES ('" +
+                            $",[Quanity],[ResponsibleUser],[TempResponsibleUser],[EquipmentID]) VALUES ('" +
                             $"{Name.GetText()}','{Description.GetText()}','{Date.GetText()}','{Img.GetStringImage()}','{count.GetText()}'," +
-                            $"'{(User.SelectedItem as Classes.Users).User_id}','{(TempUser.SelectedItem as Classes.Users).User_id}')",
+                            $"'{(User.SelectedItem as Classes.Users).User_id}','{(TempUser.SelectedItem as Classes.Users).User_id}'," +
+                            $"'{(EquipmentID.SelectedItem as Classes.Equipment).Equipment_id}')",
                             DBModule.Pages.Settings.ConnectionString);
                     }
                     else
@@ -101,7 +103,8 @@ namespace UP._02_ver._2.Pages.Consumables
                         System.Data.DataTable ProgramsQuerry = MsSQL.Select($"UPDATE [dbo].[Consumables] SET " +
                             $"[Name] = '{Name.GetText()}',[Description]='{Description.GetText()}',[ReceiptDate]='{Date.GetText()}',[Image]='{Img.GetStringImage()}'" +
                             $",[Quanity]='{count.GetText()}',[ResponsibleUser]='{(User.SelectedItem as Classes.Users).User_id}'" +
-                            $",[TempResponsibleUser]='{(TempUser.SelectedItem as Classes.Users).User_id}' WHERE ConsumableID = '{curConsumables.Consumable_id}'", DBModule.Pages.Settings.ConnectionString);
+                            $",[TempResponsibleUser]='{(TempUser.SelectedItem as Classes.Users).User_id}'" +
+                            $",[EquipmentID]='{(EquipmentID.SelectedItem as Classes.Equipment).Equipment_id}'WHERE ConsumableID = '{curConsumables.Consumable_id}'", DBModule.Pages.Settings.ConnectionString);
                     }
                     MessageBox.Show("Успешно");
                     mainWindow.LoadData(0);

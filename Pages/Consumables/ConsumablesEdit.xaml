@@ -28,8 +28,8 @@
                 <ComboBox x:Name="User" VerticalAlignment="Top" MinHeight="30" UseLayoutRounding="False"  DisplayMemberPath="FullName" Margin="332,103,168,0" />
                 <Label Content="Временно ответственный пользователь:" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="332,134,0,0" />
                 <ComboBox x:Name="TempUser" VerticalAlignment="Top"  MinHeight="30" DisplayMemberPath="FullName" Margin="332,168,168,0"/>
-                <Label Content="Тип расходного материала" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="332,210,0,0"/>
-                <uc:TextBox1 x:Name="Material_type" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="332,244,0,0"/>
+                <Label Content="Оборудованию" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="332,210,0,0"/>
+                <ComboBox x:Name="EquipmentID" DisplayMemberPath="Name" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="332,244,0,0" Height="28"/>
 
             </Grid>
         </ScrollViewer>
