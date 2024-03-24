@@ -20,9 +20,18 @@ namespace UP._02_ver._2.Pages.Inventory.InventoryElement
     /// </summary>
     public partial class InventoryElements : UserControl
     {
-        public InventoryElements()
+        MainWindow mainWindow;
+        Classes.Inventory curInventory;
+        public InventoryElements(MainWindow mainWindow, Classes.Inventory curInventory)
         {
             InitializeComponent();
+            this.mainWindow = mainWindow;
+            this.curInventory = curInventory;
+            StartDate.Content = curInventory.Date_start;
+            EndDate.Content = curInventory.Date_end;
+            Name.Content = curInventory.Name;
+            User.Content = curInventory.User;
+            Comment.Content = curInventory.Comment;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace UP._02_ver._2.Pages.Inventory
             EquipmentPanel.Children.Clear();
             foreach (Classes.Inventory curInventory in mainWindow.InventoryList)
             {
-                Pages.Inventory.InventoryElement.InventoryElements newModels = new Pages.Inventory.InventoryElement.InventoryElements();
+                Pages.Inventory.InventoryElement.InventoryElements newModels = new Pages.Inventory.InventoryElement.InventoryElements(mainWindow,curInventory);
                 newModels.MouseDown += delegate { ElementClick(curInventory); };
                 EquipmentPanel.Children.Add(newModels);
             }

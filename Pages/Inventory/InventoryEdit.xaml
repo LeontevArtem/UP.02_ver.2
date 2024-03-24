@@ -12,7 +12,7 @@
         <Grid x:Name="TopGrid" Height="50" VerticalAlignment="Top" Background="#E9F1FA">
             <Label Content="Редактирование инвенторизации" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
         </Grid>
-        <ScrollViewer HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Hidden" HorizontalContentAlignment="Left" Margin="0,50,0,50" >
+        <Grid Margin="0,50,0,50" >
             <Grid x:Name="BodyGrid">
                 <Label Content="Наименование инвентаризации" FontSize="14" FontWeight="SemiBold" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="20,0,0,0"/>
                 <uc:TextBox1 x:Name="Name" VerticalAlignment="Top" HorizontalAlignment="Left" Width="300" Margin="10,30,0,0"/>
@@ -30,7 +30,7 @@
                     <StackPanel x:Name="parrent"/>
                 </ScrollViewer>
             </Grid>
-        </ScrollViewer>
+        </Grid>
         <uc:Button1 x:Name="Back" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="10" XAMLText="Назад" XAMLTextColor="White" MouseDown="BackClick"/>
         <uc:Button1 x:Name="Save" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="120,10,10,10" XAMLText="Сохранить" XAMLTextColor="White" MouseDown="SaveClick"/>
         <uc:Button1 x:Name="Delete"  Visibility="Hidden" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="100" Margin="225,0,0,10" XAMLText="Удалить" XAMLTextColor="White" MouseDown="DeleteClick"/>
