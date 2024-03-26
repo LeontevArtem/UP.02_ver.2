@@ -17,7 +17,7 @@ namespace UP._02_ver._2.Pages.Consumables
 {
     /// <summary>
     /// Логика взаимодействия для ConsumablesMain.xaml
-    /// </summary>
+    /// </summaryewew>
     public partial class ConsumablesMain : Page
     {
         MainWindow mainWindow;
